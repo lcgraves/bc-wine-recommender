@@ -12,6 +12,10 @@
 }
 
 /* --- Base Styles --- */
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--wine-bg);
     color: var(--wine-dark);
@@ -102,8 +106,14 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 }
 
 /* --- Main Content Layout --- */
+/* Note: This class is used as the primary content wrapper on index.php and inside the dashboard-layout on admin.php */
 .main-content {
     padding: 1rem;
+    flex-grow: 1; /* Added flex-grow for dashboard layout */
+    background-color: white; /* Added background for dashboard main area */
+    border-radius: 0.75rem; /* Added rounded corners */
+    box-shadow: var(--shadow-md); /* Added shadow */
+    border: 1px solid rgba(74, 13, 31, 0.1);
 }
 
 @media (min-width: 640px) {
@@ -112,70 +122,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     }
 }
 
-/* --- Recommender Section (Hero) --- */
-.recommender-section {
-    text-align: center;
-    padding: 3rem 1rem;
-    background-color: white;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-xl);
-    border: 1px solid rgba(155, 114, 88, 0.3);
-    margin-bottom: 3rem;
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.recommender-title {
-    font-size: 2.25rem; /* 4xl */
-    font-family: var(--font-serif);
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-@media (min-width: 640px) {
-    .recommender-title {
-        font-size: 3rem; /* 5xl */
-    }
-}
-
-/* Filter Dropdowns */
-.filter-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0 1rem;
-}
-
-.filter-select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid var(--wine-accent);
-    border-radius: 0.5rem;
-    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-    background-color: white;
-    appearance: none; /* Hide default arrow */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%234A0D1F'%3e%3cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1.5em 1.5em;
-    padding-right: 2.5rem;
-    transition: border-color 0.2s;
-}
-
-.filter-select:focus {
-    outline: none;
-    border-color: var(--wine-dark);
-}
-
-@media (min-width: 640px) {
-    .filter-select {
-        width: calc(25% - 0.75rem); /* Adjust for gap */
-    }
-}
-
-/* Buttons */
+/* --- Buttons (Moved to be closer to header/nav buttons) --- */
 .button-group {
     margin-top: 2rem;
     display: flex;
@@ -192,6 +139,8 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     cursor: pointer;
     border: none;
     text-transform: uppercase;
+    text-decoration: none; /* Ensure buttons used as links are styled correctly */
+    display: inline-block; /* Ensure it respects padding/margin when used as a link */
 }
 .button:hover {
     transform: scale(1.05);
@@ -214,6 +163,129 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     background-color: var(--wine-dark);
 }
 
+/* Secondary Button: Dark ghost button for light backgrounds (REVERTED) */
+.button-secondary {
+    background-color: transparent;
+    color: var(--wine-dark); 
+    border: 2px solid var(--wine-dark); 
+}
+.button-secondary:hover {
+    background-color: var(--wine-dark);
+    color: var(--wine-light);
+    border: 2px solid var(--wine-dark);
+}
+
+/* NEW: Third Button: Light ghost button for dark backgrounds (e.g., header/navigation) */
+.button-third {
+    background-color: transparent;
+    color: var(--wine-light);
+    border: 2px solid var(--wine-light);
+    box-shadow: var(--shadow-lg); /* Inherited from .button */
+}
+.button-third:hover {
+    background-color: var(--wine-light);
+    color: var(--wine-dark);
+    border: 2px solid var(--wine-light);
+}
+
+/* --- Forms & Filters --- */
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--wine-dark);
+}
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    display: block; /* Ensure inputs stack */
+}
+.form-input:focus {
+    outline: 2px solid var(--wine-accent);
+    border-color: var(--wine-accent);
+}
+
+/* General Select Dropdowns */
+.filter-select, .filter-select-small {
+    appearance: none; /* Hide default arrow */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%234A0D1F'%3e%3cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-color: white;
+    transition: border-color 0.2s;
+}
+
+/* Large Filters (index.php) */
+.filter-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--wine-accent);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    background-position: right 0.75rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+.filter-select:focus {
+    outline: none;
+    border-color: var(--wine-dark);
+}
+@media (min-width: 640px) {
+    .filter-select {
+        width: calc(25% - 0.75rem);
+    }
+}
+
+/* Small Filters (results area) */
+.filter-select-small {
+    padding: 0.5rem;
+    border: 1px solid var(--wine-accent);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background-position: right 0.5rem center;
+    background-size: 1.2em 1.2em;
+    padding-right: 2rem;
+}
+
+/* --- Recommender Section (Hero) --- */
+.recommender-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(155, 114, 88, 0.3);
+    margin-bottom: 3rem;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recommender-title {
+    font-size: 2.25rem; /* 4xl */
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--wine-dark);
+}
+@media (min-width: 640px) {
+    .recommender-title {
+        font-size: 3rem; /* 5xl */
+    }
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
 /* --- Recommendations Section --- */
 .recommendations-section {
     padding-top: 2rem;
@@ -227,7 +299,6 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     flex-direction: column;
     align-items: flex-start;
 }
-
 @media (min-width: 640px) {
     .results-header {
         flex-direction: row;
@@ -248,34 +319,19 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     gap: 1rem;
     margin-top: 1rem;
 }
-
 @media (min-width: 640px) {
     .results-filters {
         margin-top: 0;
     }
 }
 
-.filter-select-small {
-    padding: 0.5rem;
-    border: 1px solid var(--wine-accent);
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    background-color: white;
-    appearance: none; /* Hide default arrow */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%234A0D1F'%3e%3cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    background-size: 1.2em 1.2em;
-    padding-right: 2rem;
-}
 
-/* Wine Card Layout (Placeholder structure, will be rendered by PHP/JS) */
+/* Wine Card Layout */
 .wine-card-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
 }
-
 @media (min-width: 768px) {
     .wine-card-container {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -386,17 +442,137 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 }
 
 
-/* --- Footer --- */
-.footer {
-    background-color: var(--wine-dark);
-    color: var(--wine-light);
-    padding: 1.5rem 0;
-    margin-top: 3rem;
+/* --- ADMIN DASHBOARD STYLES --- */
+
+.dashboard-layout {
+    display: flex;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    align-items: flex-start; /* Aligns sidebar and main content to the top */
 }
 
-.footer .container {
-    font-size: 0.875rem;
+.sidebar {
+    width: 280px; /* Wider sidebar for readability */
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    flex-shrink: 0;
+    border: 1px solid rgba(74, 13, 31, 0.1);
+    overflow: hidden;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: var(--wine-dark);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--wine-light);
+    border-left-color: var(--wine-accent);
+}
+
+.sidebar-menu .active {
+    background-color: var(--wine-light);
+    font-weight: 700;
+    border-left-color: var(--wine-dark);
+}
+
+/* Container to visually separate the logout button at the bottom of the sidebar */
+.sidebar-logout-container {
+    padding: 1.5rem;
+    border-top: 1px solid var(--wine-light);
+    background-color: var(--wine-bg); /* Use a slightly different background */
+}
+
+/* Dedicated Logout Button Style for clear visibility at all times (FILLED) */
+.logout-btn {
+    display: block; /* Make it take full width */
+    width: 100%;
     text-align: center;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid var(--wine-dark);
+    background-color: white; /* Ensure white background for contrast */
+    color: var(--wine-dark); /* Ensure dark text for contrast */
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background-color: var(--wine-dark);
+    color: var(--wine-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+.stat-grid {
+    display: grid;
+    /* Responsive grid: minimum size 200px per card */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--wine-accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--wine-dark);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6b7280; /* gray-500 */
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+/* Responsive adjustments for dashboard layout */
+@media (max-width: 992px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid rgba(74, 13, 31, 0.1);
+        border-radius: 0;
+    }
 }
 
 /* --- ADMIN LOGIN PAGE STYLES --- */
@@ -417,21 +593,16 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     /* Highlight the card with the accent color border */
     border: 1px solid var(--wine-accent);
 }
-.form-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--wine-dark);
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--wine-dark);
+    color: var(--wine-light);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
 }
-.form-input {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-}
-.form-input:focus {
-    outline: 2px solid var(--wine-accent);
-    border-color: var(--wine-accent);
+
+.footer .container {
+    font-size: 0.875rem;
+    text-align: center;
 }

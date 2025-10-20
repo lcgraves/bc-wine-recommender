@@ -1,17 +1,22 @@
-/* --- CSS Custom Properties (Variables) --- */
+/* --- 1. CSS Custom Properties (Variables) --- */
 :root {
-    --wine-dark: #4A0D1F; /* Deep Burgundy/Maroon */
-    --wine-light: #F7F3E8; /* Off-White/Cream */
-    --wine-accent: #9B7258; /* Wood/Cork color */
-    --wine-bg: #FAF8F4; /* Light background */
+    /* New Color Palette (Deep Burgundy, Wood Accent) */
+    --wine-dark: #4A0D1F; /* Deep Burgundy/Maroon - Primary Text, Header BG */
+    --wine-light: #F7F3E8; /* Off-White/Cream - Secondary BG, Header Text */
+    --wine-accent: #9B7258; /* Wood/Cork color - Highlights, Borders */
+    --wine-bg: #FAF8F4; /* Light background - Body BG */
+    --text-secondary: #666666; /* General secondary text color */
+
+    /* Fonts and Shadows */
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Playfair Display', serif;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Base Styles --- */
+/* --- 2. Base & Utility Styles --- */
 * {
     box-sizing: border-box;
 }
@@ -25,19 +30,27 @@ body {
     line-height: 1.6;
 }
 
-/* Custom Scrollbar for better aesthetics */
+/* Custom Scrollbar */
 body::-webkit-scrollbar { width: 8px; }
 body::-webkit-scrollbar-track { background: #f1f1f1; }
 body::-webkit-scrollbar-thumb { background: var(--wine-accent); border-radius: 4px; }
 body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 
 .container {
-    max-width: 1280px; /* 7xl equivalent */
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* --- Header & Navigation --- */
+/* --- 2.5. Spacing Utilities (New) --- */
+/* Specific utilities derived from removed inline styles */
+.mb-05 { margin-bottom: 0.5rem; }
+.mt-3 { margin-top: 3rem; }
+.mr-1 { margin-right: 1rem; }
+.mb-15 { margin-bottom: 1.5rem; }
+
+
+/* --- 3. Header & Navigation --- */
 .header {
     background-color: var(--wine-dark);
     color: var(--wine-light);
@@ -60,7 +73,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     letter-spacing: 0.1em;
     font-weight: 600;
     text-decoration: none;
-    color: var(--wine-light); /* Added color explicitly */
+    color: var(--wine-light);
     transition: color 0.3s;
 }
 .logo:hover {
@@ -89,6 +102,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 }
 
 .admin-button {
+    /* Style for the 'Admin Login' link button in the main header */
     margin-left: 1.5rem;
     font-size: 0.875rem;
     background-color: var(--wine-accent);
@@ -105,31 +119,8 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     box-shadow: var(--shadow-lg);
 }
 
-/* --- Main Content Layout --- */
-/* Note: This class is used as the primary content wrapper on index.php and inside the dashboard-layout on admin.php */
-.main-content {
-    padding: 1rem;
-    flex-grow: 1; /* Added flex-grow for dashboard layout */
-    background-color: white; /* Added background for dashboard main area */
-    border-radius: 0.75rem; /* Added rounded corners */
-    box-shadow: var(--shadow-md); /* Added shadow */
-    border: 1px solid rgba(74, 13, 31, 0.1);
-}
-
-@media (min-width: 640px) {
-    .main-content {
-        padding: 2rem;
-    }
-}
-
-/* --- Buttons (Moved to be closer to header/nav buttons) --- */
-.button-group {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
+/* --- 4. Buttons --- */
+/* Base button style (applies to primary, accent, secondary) */
 .button {
     font-weight: 700;
     padding: 0.75rem 2rem;
@@ -139,8 +130,8 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     cursor: pointer;
     border: none;
     text-transform: uppercase;
-    text-decoration: none; /* Ensure buttons used as links are styled correctly */
-    display: inline-block; /* Ensure it respects padding/margin when used as a link */
+    text-decoration: none;
+    display: inline-block;
 }
 .button:hover {
     transform: scale(1.05);
@@ -163,11 +154,11 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     background-color: var(--wine-dark);
 }
 
-/* Secondary Button: Dark ghost button for light backgrounds (REVERTED) */
+/* Secondary Button: Dark ghost button for light backgrounds */
 .button-secondary {
     background-color: transparent;
-    color: var(--wine-dark); 
-    border: 2px solid var(--wine-dark); 
+    color: var(--wine-dark);
+    border: 2px solid var(--wine-dark);
 }
 .button-secondary:hover {
     background-color: var(--wine-dark);
@@ -175,12 +166,12 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     border: 2px solid var(--wine-dark);
 }
 
-/* NEW: Third Button: Light ghost button for dark backgrounds (e.g., header/navigation) */
+/* Third Button: Light ghost button for dark backgrounds (e.g., header/navigation) */
 .button-third {
     background-color: transparent;
     color: var(--wine-light);
     border: 2px solid var(--wine-light);
-    box-shadow: var(--shadow-lg); /* Inherited from .button */
+    box-shadow: var(--shadow-lg);
 }
 .button-third:hover {
     background-color: var(--wine-light);
@@ -188,7 +179,22 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     border: 2px solid var(--wine-light);
 }
 
-/* --- Forms & Filters --- */
+/* Large button size class */
+.button-lg {
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
+}
+
+.button-double-border {
+    border: 4px double rgba(74, 13, 31, 0.5);
+}
+
+/* --- 5. Forms & Filters (General & Recommender) --- */
+
+.form-group {
+    /* FIX: Reduced margin from 2rem to 1.25rem for tighter sequential inputs */
+    margin-bottom: 1.25rem; 
+}
 
 .form-label {
     display: block;
@@ -196,43 +202,58 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     margin-bottom: 0.5rem;
     color: var(--wine-dark);
 }
-.form-input {
+
+/* Consolidated style for all standard admin text inputs, select boxes, and text areas */
+.form-input, .form-select, .form-textarea {
     width: 100%;
     padding: 0.75rem;
-    margin-bottom: 1.5rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-    display: block; /* Ensure inputs stack */
+    display: block;
+    font-family: var(--font-sans);
+    background-color: white; 
 }
-.form-input:focus {
+.form-textarea {
+    min-height: 150px; /* Ensure a decent size for notes */
+    resize: vertical;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
     outline: 2px solid var(--wine-accent);
     border-color: var(--wine-accent);
 }
 
-/* General Select Dropdowns */
-.filter-select, .filter-select-small {
-    appearance: none; /* Hide default arrow */
+/* General Select Dropdowns (for both recommender and admin) */
+.form-select, .filter-select, .filter-select-small {
+    appearance: none;
+    /* Custom SVG for dropdown arrow */
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%234A0D1F'%3e%3cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
-    background-color: white;
+    background-position: right 0.75rem center; /* Adjusted for standard padding */
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem; /* Ensure room for the arrow */
     transition: border-color 0.2s;
 }
 
-/* Large Filters (index.php) */
+/* Recommender Filter styles */
 .filter-select {
-    width: 100%;
-    padding: 0.75rem;
     border: 2px solid var(--wine-accent);
-    border-radius: 0.5rem;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-    background-position: right 0.75rem center;
-    background-size: 1.5em 1.5em;
+    padding: 0.75rem; 
     padding-right: 2.5rem;
 }
 .filter-select:focus {
     outline: none;
     border-color: var(--wine-dark);
+}
+.filter-select-small {
+    padding: 0.5rem;
+    border: 1px solid var(--wine-accent);
+    font-size: 0.875rem;
+    background-position: right 0.5rem center;
+    background-size: 1.2em 1.2em;
+    padding-right: 2rem;
 }
 @media (min-width: 640px) {
     .filter-select {
@@ -240,18 +261,239 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     }
 }
 
-/* Small Filters (results area) */
-.filter-select-small {
-    padding: 0.5rem;
-    border: 1px solid var(--wine-accent);
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    background-position: right 0.5rem center;
-    background-size: 1.2em 1.2em;
-    padding-right: 2rem;
+/* --- 6. Admin Form Specifics (Add Wine Page) --- */
+
+.page-header-title {
+    margin-bottom: 0.5rem;
+    color: var(--wine-dark);
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
 }
 
-/* --- Recommender Section (Hero) --- */
+.form-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.form-section-header {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--wine-dark);
+    border-bottom: 3px solid var(--wine-accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-serif);
+}
+
+/* Layout for the standard 2 or 3 column inputs */
+.form-grid-auto {
+    display: grid;
+    /* Adapts to 2 or 3 columns based on space */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Flavor/Tasting Notes Checkbox Grid */
+.notes-grid {
+    display: grid;
+    /* Keeps a nice flow for many small items */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--wine-accent);
+    border-radius: 0.5rem;
+    background-color: var(--wine-light);
+    box-shadow: var(--shadow-sm);
+}
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: var(--wine-dark);
+}
+.checkbox-item input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--wine-dark); /* Colorizes the checkbox itself */
+}
+
+/* Horizontal line separator between sections */
+.form-separator {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid var(--wine-accent);
+    opacity: 0.5;
+}
+
+/* Action buttons container at the bottom */
+.form-actions {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--wine-bg);
+    display: flex;
+    justify-content: flex-start; /* Aligned to the left */
+    gap: 1.5rem;
+}
+
+/* --- 7. Admin Dashboard Layout --- */
+
+.dashboard-layout {
+    display: flex;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    flex-shrink: 0;
+    border: 1px solid rgba(74, 13, 31, 0.1);
+    overflow: hidden;
+}
+
+/* New: Sidebar Header Title */
+.sidebar-title {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--wine-dark);
+}
+
+/* New: Sidebar HR Separator */
+.sidebar-separator {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: var(--wine-dark);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--wine-light);
+    border-left-color: var(--wine-accent);
+}
+
+.sidebar-menu .active {
+    background-color: var(--wine-light);
+    font-weight: 700;
+    border-left-color: var(--wine-dark);
+}
+
+.sidebar-logout-container {
+    padding: 1.5rem;
+    border-top: 1px solid var(--wine-light);
+    background-color: var(--wine-bg);
+}
+
+.logout-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid var(--wine-dark);
+    background-color: white;
+    color: var(--wine-dark);
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background-color: var(--wine-dark);
+    color: var(--wine-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 2rem; /* Consistent padding for admin main content */
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(74, 13, 31, 0.1);
+}
+
+/* New: Dashboard Welcome Text (P) */
+.dashboard-welcome-text {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* New: Dashboard Subheader (H2) */
+.dashboard-subheader {
+    font-size: 1.5rem;
+    color: var(--wine-dark);
+    border-bottom: 2px solid var(--wine-accent);
+    padding-bottom: 0.5rem;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--wine-accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--wine-dark);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+/* --- 8. Recommender Section (Hero) --- */
 .recommender-section {
     text-align: center;
     padding: 3rem 1rem;
@@ -266,7 +508,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 }
 
 .recommender-title {
-    font-size: 2.25rem; /* 4xl */
+    font-size: 2.25rem;
     font-family: var(--font-serif);
     font-weight: 700;
     margin-bottom: 2rem;
@@ -274,7 +516,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 }
 @media (min-width: 640px) {
     .recommender-title {
-        font-size: 3rem; /* 5xl */
+        font-size: 3rem;
     }
 }
 
@@ -284,9 +526,32 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     justify-content: center;
     gap: 1rem;
     padding: 0 1rem;
+    margin-bottom: 2rem;
 }
 
-/* --- Recommendations Section --- */
+/* New: Styling for the container holding the two main buttons on index.php */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem; /* Added margin-top for top-level separation */
+    flex-wrap: wrap; /* Ensure responsiveness on small screens */
+}
+.button-group .button {
+    /* Override width for button group so they are not full width */
+    width: auto;
+}
+@media (max-width: 640px) {
+    .button-group {
+        flex-direction: column;
+    }
+    .button-group .button {
+        width: 100%;
+    }
+}
+
+
+/* --- 9. Recommendations Section --- */
 .recommendations-section {
     padding-top: 2rem;
 }
@@ -325,7 +590,6 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     }
 }
 
-
 /* Wine Card Layout */
 .wine-card-container {
     display: grid;
@@ -353,15 +617,14 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 
 .wine-image-placeholder {
     width: 100%;
-    height: 12rem; /* 48 */
+    height: 12rem;
     background-color: #f1f1f1;
 }
 
-/* Ensures the image covers its container */
 .wine-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .wine-details {
@@ -385,7 +648,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 .wine-specs {
     font-size: 0.875rem;
     line-height: 1.5;
-    color: #4b5563; /* gray-700 */
+    color: #4b5563;
     padding: 0;
     list-style: none;
     margin-top: 0;
@@ -405,11 +668,11 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 .wine-price {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #10b981; /* green-600 */
+    color: #10b981;
 }
 
 .wine-dismiss-btn {
-    color: #6b7280; /* gray-500 */
+    color: #6b7280;
     background: none;
     border: none;
     cursor: pointer;
@@ -425,143 +688,45 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     height: 1.5rem;
 }
 
-/* Try Again Button */
 .try-again-wrapper {
     text-align: center;
     margin-top: 2.5rem;
     margin-bottom: 5rem;
 }
 
-.button-lg {
-    font-size: 1.25rem;
-    padding: 1rem 3rem;
-}
-
-.button-double-border {
-    border: 4px double rgba(74, 13, 31, 0.5);
-}
-
-
-/* --- ADMIN DASHBOARD STYLES --- */
-
-.dashboard-layout {
+/* --- 10. Admin Login Page Styles --- */
+.login-wrapper {
     display: flex;
-    gap: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    align-items: flex-start; /* Aligns sidebar and main content to the top */
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem; 
+    padding-bottom: 3rem;
+    min-height: calc(100vh - 8rem);
 }
-
-.sidebar {
-    width: 280px; /* Wider sidebar for readability */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
     background-color: white;
     border-radius: 0.75rem;
-    box-shadow: var(--shadow-lg);
-    flex-shrink: 0;
-    border: 1px solid rgba(74, 13, 31, 0.1);
-    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--wine-accent);
 }
 
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar-menu a {
-    display: block;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    color: var(--wine-dark);
-    text-decoration: none;
-    transition: all 0.2s;
-    font-weight: 500;
-    border-left: 4px solid transparent;
-}
-
-.sidebar-menu a:hover {
-    background-color: var(--wine-light);
-    border-left-color: var(--wine-accent);
-}
-
-.sidebar-menu .active {
-    background-color: var(--wine-light);
-    font-weight: 700;
-    border-left-color: var(--wine-dark);
-}
-
-/* Container to visually separate the logout button at the bottom of the sidebar */
-.sidebar-logout-container {
-    padding: 1.5rem;
-    border-top: 1px solid var(--wine-light);
-    background-color: var(--wine-bg); /* Use a slightly different background */
-}
-
-/* Dedicated Logout Button Style for clear visibility at all times (FILLED) */
-.logout-btn {
-    display: block; /* Make it take full width */
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid var(--wine-dark);
-    background-color: white; /* Ensure white background for contrast */
-    color: var(--wine-dark); /* Ensure dark text for contrast */
-    text-decoration: none;
-}
-
-.logout-btn:hover {
+/* --- 11. Footer --- */
+.footer {
     background-color: var(--wine-dark);
     color: var(--wine-light);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-lg);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
 }
 
-
-.stat-grid {
-    display: grid;
-    /* Responsive grid: minimum size 200px per card */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.stat-card {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 0.75rem;
+.footer .container {
+    font-size: 0.875rem;
     text-align: center;
-    box-shadow: var(--shadow-md);
-    border: 2px solid var(--wine-accent);
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.stat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-}
-
-.stat-value {
-    font-size: 3rem;
-    font-family: var(--font-serif);
-    font-weight: 700;
-    color: var(--wine-dark);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #6b7280; /* gray-500 */
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-
-/* Responsive adjustments for dashboard layout */
+/* --- 12. Responsive Adjustments --- */
 @media (max-width: 992px) {
     .dashboard-layout {
         flex-direction: column;
@@ -573,36 +738,14 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
         border-bottom: 1px solid rgba(74, 13, 31, 0.1);
         border-radius: 0;
     }
-}
-
-/* --- ADMIN LOGIN PAGE STYLES --- */
-.login-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Accounting for header/footer space */
-    min-height: calc(100vh - 8rem); 
-}
-.login-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 2.5rem;
-    background-color: white;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-xl);
-    /* Highlight the card with the accent color border */
-    border: 1px solid var(--wine-accent);
-}
-
-/* --- Footer --- */
-.footer {
-    background-color: var(--wine-dark);
-    color: var(--wine-light);
-    padding: 1.5rem 0;
-    margin-top: 3rem;
-}
-
-.footer .container {
-    font-size: 0.875rem;
-    text-align: center;
+    .main-content {
+        padding: 1.5rem;
+    }
+    .form-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .button-lg {
+        width: 100%;
+    }
 }

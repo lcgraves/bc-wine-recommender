@@ -398,3 +398,40 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     font-size: 0.875rem;
     text-align: center;
 }
+
+/* --- ADMIN LOGIN PAGE STYLES --- */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Accounting for header/footer space */
+    min-height: calc(100vh - 8rem); 
+}
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-xl);
+    /* Highlight the card with the accent color border */
+    border: 1px solid var(--wine-accent);
+}
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--wine-dark);
+}
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+.form-input:focus {
+    outline: 2px solid var(--wine-accent);
+    border-color: var(--wine-accent);
+}

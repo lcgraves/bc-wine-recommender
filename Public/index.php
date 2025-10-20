@@ -20,8 +20,7 @@
             <nav class="nav">
                 <a href="index.php" class="nav-link current">Home</a>
                 <a href="about.php" class="nav-link">About</a>
-                <!-- Admin Login/Logout Placeholder -->
-                <a href="admin.php" class="admin-button">Admin Login</a>
+                <a href="login.php" class="admin-button">Admin Login</a>
             </nav>
         </div>
     </header>

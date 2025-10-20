@@ -7,7 +7,6 @@
     <title>Admin Login | The BC Pour</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Removed internal <style> block; CSS is now in styles.css -->
 </head>
 <body class="bg-wine-bg">
 
@@ -29,11 +28,16 @@
             
             <!-- This form submits credentials to PHP on backend -->
             <form action="login.php" method="POST">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" id="username" name="username" class="form-input" required>
                 
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" name="password" class="form-input" required>
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" required>
+                </div>
                 
                 <!-- The button is styled as the primary action -->
                 <button type="submit" class="button button-primary" style="width: 100%;">

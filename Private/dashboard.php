@@ -24,7 +24,7 @@
         
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <h2 class="recommender-title" style="font-size: 1.5rem; padding: 1rem 1.5rem; margin-bottom: 0.5rem;">Dashboard</h2>
+            <h2 class="sidebar-title">Dashboard</h2>
             <nav class="sidebar-menu">
                 <!-- Dashboard Home -->
                 <a href="admin.php" class="active">Overview</a> 
@@ -44,7 +44,7 @@
                     */
                 ?>
                 
-                <hr style="margin: 1rem 0; border: 0; border-top: 1px solid #eee;">
+                <hr class="sidebar-separator">
                 
                 <a href="logout.php">Log Out</a>
             </nav>
@@ -52,11 +52,10 @@
 
         <!-- Main Content Area -->
         <section class="main-content">
-            <h1 class="recommender-title" style="margin-bottom: 0.5rem;">Welcome Back!</h1>
-            <!-- PHP would replace this with the actual logged-in user's name -->
-            <p style="color: #666; margin-bottom: 2rem;">You are currently logged in as a **[Placeholder Role - e.g., Admin/Editor]**.</p>
+            <h1 class="recommender-title mb-05">Welcome Back!</h1>
+            <p class="dashboard-welcome-text">You are currently logged in as a **[Placeholder Role - e.g., Admin/Editor]**.</p>
             
-            <h2 style="font-size: 1.5rem; color: var(--wine-dark); border-bottom: 2px solid var(--wine-accent); padding-bottom: 0.5rem;">System Overview</h2>
+            <h2 class="dashboard-subheader">System Overview</h2>
 
             <!-- Placeholder Stat Cards (PHP will populate these values) -->
             <div class="stat-grid">
@@ -81,11 +80,11 @@
                 </div>
             </div>
 
-            <div style="margin-top: 3rem;">
-                 <h2 style="font-size: 1.5rem; color: var(--wine-dark); border-bottom: 2px solid var(--wine-accent); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Quick Actions</h2>
+            <div class="mt-3">
+                 <h2 class="dashboard-subheader mb-15">Quick Actions</h2>
                  
                  <!-- Primary Action Button -->
-                 <a href="add_wine.php" class="button button-primary" style="margin-right: 1rem;">
+                 <a href="add_wine.php" class="button button-primary mr-1">
                     + Add New Wine Profile
                  </a>
 

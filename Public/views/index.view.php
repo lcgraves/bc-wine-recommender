@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The BC Pour | Find Your Wine</title>
-    <!-- Link the external CSS file -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Load Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-wine-bg">
 
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="container header-content">
-            <!-- Logo/Title -->
-            <a href="#" class="logo">The BC Pour</a>
-            <!-- Navigation Links -->
-            <nav class="nav">
-                <a href="index.php" class="nav-link current">Home</a>
-                <a href="about.php" class="nav-link">About</a>
-                <a href="login.php" class="admin-button">Admin Login</a>
-            </nav>
-        </div>
-    </header>
+    <?php require 'partials/head.php' ?>
+    <?php require 'partials/nav.php' ?>
 
     <main class="container main-content">
 
@@ -114,12 +91,4 @@
 
     </main>
 
-    <!-- Footer Placeholder -->
-    <footer class="footer">
-        <div class="container text-center">
-            &copy; 2025 The BC Pour | Supporting BC Wine.
-        </div>
-    </footer>
-    
-</body>
-</html>
+    <?php require 'partials/footer.php' ?>

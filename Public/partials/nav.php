@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container header-content">
             <!-- Logo/Title -->
-            <a href="#" class="logo">The BC Pour</a>
+            <a href="index.php" class="logo">The BC Pour</a>
             <!-- Navigation Links -->
             <nav class="nav">
                 <a href="index.php" class="nav-link current">Home</a>

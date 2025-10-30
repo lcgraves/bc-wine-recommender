@@ -7,7 +7,7 @@ require 'Database.php';
 // connect to MySQL wine_db and execute query
 
 $db = new Database();
-$wines = $db->query("SELECT * FROM `wine_db`.`wine-data`")->fetchAll(PDO::FETCH_ASSOC); 
+$wines = $db->query("SELECT * FROM `wine_db`.`wine-data`")->fetchAll(); 
 
 foreach ($wines as $wine) {
     echo "<li> " . $wine['name'] . " - " . $wine['winery'] . " - " . $wine['region'] . " - " . $wine['colour'] . " - " . $wine['price'] . "</li>";

@@ -5,9 +5,15 @@ require 'Database.php';
 
 
 // connect to MySQL wine_db and execute query
+$config = [
+        'host' => 'localhost',
+        'port' => 3306, 
+        'dbname' => 'wine_db',
+        'charset' => 'utf8mb4'
+    ];
 
-$db = new Database();
-$wines = $db->query("SELECT * FROM `wine_db`.`wine-data`")->fetchAll(); 
+$db = new Database($config);
+$wines = $db->query("SELECT * FROM `wine_db`.`wine-data`")->fetchAll();
 
 foreach ($wines as $wine) {
     echo "<li> " . $wine['name'] . " - " . $wine['winery'] . " - " . $wine['region'] . " - " . $wine['colour'] . " - " . $wine['price'] . "</li>";

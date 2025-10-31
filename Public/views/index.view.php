@@ -28,10 +28,10 @@
                 </select>
                 <select id="notes-filter" name="notes" class="filter-select">
                     <option disabled selected value="">Flavor Notes</option>
-                    <option value="citrus">Berry & Fruit</option>
-                    <option value="berry">Earthy & Spice</option>
-                    <option value="earthy">Citrus & Mineral</option>
-                    <option value="vegetal">Vegetal & Herbal</option>
+                    <option value="berry_fruit">Berry & Fruit</option>
+                    <option value="earthy_spice">Earthy & Spice</option>
+                    <option value="citrus_mineral">Citrus & Mineral</option>
+                    <option value="vegetal_herbal">Vegetal & Herbal</option>
                 </select>
                 <select id="body-filter" name="body" class="filter-select">
                     <option disabled selected value="">Body</option>

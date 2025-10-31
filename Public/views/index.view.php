@@ -1,5 +1,5 @@
 
-    <?php require 'partials/head.php' ?>
+   <?php require 'partials/head.php' ?>
     <?php require 'partials/nav.php' ?>
 
     <main class="container main-content">
@@ -28,9 +28,10 @@
                 </select>
                 <select id="notes-filter" name="notes" class="filter-select">
                     <option disabled selected value="">Flavor Notes</option>
-                    <option value="citrus">Citrus/Zesty</option>
-                    <option value="berry">Berry/Jammy</option>
-                    <option value="earthy">Earthy/Spicy</option>
+                    <option value="citrus">Berry & Fruit</option>
+                    <option value="berry">Earthy & Spice</option>
+                    <option value="earthy">Citrus & Mineral</option>
+                    <option value="vegetal">Vegetal & Herbal</option>
                 </select>
                 <select id="body-filter" name="body" class="filter-select">
                     <option disabled selected value="">Body</option>
@@ -90,5 +91,5 @@
         </section>
 
     </main>
-
+ 
     <?php require 'partials/footer.php' ?>

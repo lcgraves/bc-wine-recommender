@@ -8,7 +8,7 @@ require 'Database.php';
 $config = require 'config.php';
 
 $db = new Database($config['database']);
-$wines = $db->query("SELECT * FROM `wine_db`.`wine-data`")->fetchAll();
+$wines = $db->query("SELECT * FROM `wine-data` WHERE `region` = 'Okanagan Valley';")->fetchAll();
 
 foreach ($wines as $wine) {
     echo "<li> " . $wine['name'] . " - " . $wine['winery'] . " - " . $wine['region'] . " - " . $wine['colour'] . " - " . $wine['price'] . "</li>";

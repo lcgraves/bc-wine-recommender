@@ -28,3 +28,12 @@ function createDBConnection() {
 
 return $pdo;
 }
+
+/*** Excecute prepared statement ****/
+
+function executePS($pdo, $sql, $params = []): PDOStatement{
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    return $stmt;
+}
+

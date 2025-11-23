@@ -54,3 +54,11 @@ function redirect(string $url): void
     header('Location: ' . $url);
     exit;
 }
+
+/**
+ * Check if form was submitted via POST
+ */
+function is_post_request(): bool
+{
+    return $_SERVER['REQUEST_METHOD'] === 'POST';
+}

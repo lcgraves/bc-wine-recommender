@@ -45,3 +45,12 @@ function html_escape(string $text): string
 {
     return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
 }
+
+/**
+ * Redirect to a URL
+ */
+function redirect(string $url): void
+{
+    header('Location: ' . $url);
+    exit;
+}

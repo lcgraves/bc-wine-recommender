@@ -1,19 +1,22 @@
 
-<?php require 'includes/head.php' ?>
-<?php require 'includes/nav.php' ?>
+<?php 
+$page_title = "Home";
+require 'includes/header.php';
+require 'includes/nav.php' 
+?>
 
     <main class="container main-content">
 
         <!-- 1. Recommendation Search Section (The Hero) -->
         <!-- Form to collect filter data for PHP submission -->
-        <form id="wine-filter-form" class="recommender-section">
+        <form action="" id="wine-filter-form" class="recommender-section">
             <h1 class="recommender-title">
                 Find Your Next Perfect BC Wine
             </h1>
             
             <!-- Filters: Added name attributes for form submission -->
             <div class="filter-group">
-                <select id="colour-filter" name="colour" class="filter-select">
+                <select id="colour-filter" name="colour" class="filter-select" method="POST" action="process_filters.php">
                     <option disabled selected value="">Colour</option>
                     <option value="red">Red</option>
                     <option value="white">White</option>

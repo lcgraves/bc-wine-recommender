@@ -62,3 +62,11 @@ function is_post_request(): bool
 {
     return $_SERVER['REQUEST_METHOD'] === 'POST';
 }
+
+/**
+ * Get POST data safely
+ */
+function post_data(string $key, $default = '')
+{
+    return $_POST[$key] ?? $default;
+}

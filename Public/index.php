@@ -1,15 +1,4 @@
 <?php
-require 'functions.php';
+require 'includes/functions.php';
 require 'views/index.view.php';
-require 'Database.php';
-
-
-// connect to MySQL wine_db and execute query
-$config = require 'config.php';
-
-$db = new Database($config['database']);
-$wines = $db->query("SELECT * FROM `wine-data` WHERE `region` = 'Okanagan Valley';")->fetchAll();
-
-foreach ($wines as $wine) {
-    echo "<li> " . $wine['name'] . " - " . $wine['winery'] . " - " . $wine['region'] . " - " . $wine['colour'] . " - " . $wine['price'] . "</li>";
-}
+require_once 'includes/Database.php';

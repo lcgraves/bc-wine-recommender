@@ -1,6 +1,6 @@
 
-   <?php require 'partials/head.php' ?>
-    <?php require 'partials/nav.php' ?>
+<?php require 'includes/head.php' ?>
+<?php require 'includes/nav.php' ?>
 
     <main class="container main-content">
 
@@ -92,4 +92,4 @@
 
     </main>
  
-    <?php require 'partials/footer.php' ?>
+    <?php require 'includes/footer.php' ?>

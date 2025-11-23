@@ -1,15 +1,11 @@
 
-<?php 
+<?php
+require_once 'includes/Database.php';
 $page_title = "Recommended Wines";
 require 'includes/header.php';
 require 'includes/nav.php';
-require_once 'includes/Database.php';
-
-
-
-
-
 ?>
+
 
     <main class="container main-content">
 

@@ -37,3 +37,11 @@ function executePS($pdo, $sql, $params = []): PDOStatement{
     return $stmt;
 }
 
+/**
+ * Escape HTML output to prevent cross-site scripting (XSS) attacks.
+ * ENT-QUOTES constant ensure both single and double quotes are converted
+ */
+function html_escape(string $text): string
+{
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+}

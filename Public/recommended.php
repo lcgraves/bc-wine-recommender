@@ -1,0 +1,55 @@
+
+<?php 
+$page_title = "Recommended Wines";
+require 'includes/header.php';
+require 'includes/nav.php';
+require_once 'includes/Database.php';
+
+
+
+
+
+?>
+
+    <main class="container main-content">
+
+        <!-- 2. Recommended Pours Results Section -->
+        <section id="recommendations" class="recommendations-section">
+            <div class="results-header">
+                <h2 class="results-title">
+                    Your Recommended Pours
+                </h2>
+                
+                <!-- Result Filters (Price and Region) -->
+                <div class="results-filters">
+                    <select class="filter-select-small" name="price">
+                        <option disabled selected value="">Filter by Price</option>
+                        <option value="low">Under $20</option>
+                        <option value="med">$20 - $40</option>
+                        <option value="high">Over $40</option>
+                    </select>
+                    <select class="filter-select-small" name="region">
+                        <option disabled selected value="">BC Region</option>
+                        <option value="okanagan">Okanagan Valley</option>
+                        <option value="similkameen">Similkameen Valley</option>
+                        <option value="fraser">Fraser Valley</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Container where wine cards will eventually be loaded -->
+            <div id="wine-card-container" class="wine-card-container">
+                <p style="text-align: center; color: #9B7258; padding: 3rem;">Use the filters above to find your perfect BC wine!</p>
+            </div>
+
+            <!-- Try Again Button -->
+            <div class="try-again-wrapper">
+                <button class="button button-lg button-primary button-double-border">
+                    Try Again!
+                </button>
+            </div>
+        </section>
+
+    </main>
+ 
+    <?php require 'includes/footer.php' ?>

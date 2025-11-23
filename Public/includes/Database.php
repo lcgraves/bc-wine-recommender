@@ -70,3 +70,11 @@ function post_data(string $key, $default = '')
 {
     return $_POST[$key] ?? $default;
 }
+
+/**
+ * Get GET data safely
+ */
+function get_data(string $key, $default = null)
+{
+    return $_GET[$key] ?? $default;
+}

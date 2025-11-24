@@ -47,25 +47,30 @@ $sql = "
 // Initialize parameters array for prepared statement
 $params = [];
 
-// Filter for choses parameters
+// Filter for chosen parameters
 if ($colour) {
     $sql .= " AND w.colour = :colour";
     $params[':colour'] = $colour;
+    // Store the clean filter value for display
+    $display_filters['colour'] = $colour;
 }
 
 if ($sweetness) {
     $sql .= " AND w.sweetness = :sweetness";
     $params[':sweetness'] = $sweetness;
+    $display_filters['sweetness'] = $sweetness;
 }
 
 if ($notes_filter) {
     $sql .= " AND t.flavour_note LIKE :notes_filter";
     $params[':notes_filter'] = '%' . $notes_filter . '%';
+    $display_filters['notes'] = $notes_filter;
 }
 
 if ($body) {
     $sql .= " AND w.body = :body";
     $params[':body'] = $body;
+    $display_filters['body'] = $body;
 }
 
 // Add an ORDER BY clause do display results by price ascending
@@ -86,7 +91,7 @@ try {
 
     // Redirect the user to the display page
     redirect('../recommended.php');
-    
+
 } catch (PDOException $e) {
     // Handle database errors
     error_log("Database Query Failed: " . $e->getMessage());

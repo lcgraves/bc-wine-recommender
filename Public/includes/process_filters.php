@@ -79,3 +79,8 @@ try {
     // Execute the prepared statement
     $stmt = executePS($pdo, $sql, $params);
     $recommended_wines = $stmt->fetchAll(); // Results are fetched here
+
+    // Store results and filters in session for retrieval on the recommended.php page
+    $_SESSION['wine_search_results'] = $recommended_wines;
+    $_SESSION['wine_search_filters'] = $params;
+

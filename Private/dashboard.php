@@ -1,5 +1,9 @@
 <?php
-// Start session and check if admin is logged in
+// Ensure session has been started and user logged in
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 $page_title = "Admin Dashboard";
 require_once '../Public/includes/Database.php';

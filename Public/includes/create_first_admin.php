@@ -17,3 +17,8 @@ try {
     // Check if any admin users already exist to prevent accidental re-runs
     $stmt = executePS($pdo, "SELECT COUNT(*) FROM admin");
     $user_count = $stmt->fetchColumn();
+
+    if ($user_count > 0) {
+        // Prevent running the script if users already exist
+        die("❌ Error: Admin user already exists. Cannot run setup script again.");
+    }

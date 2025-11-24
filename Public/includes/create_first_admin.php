@@ -22,3 +22,6 @@ try {
         // Prevent running the script if users already exist
         die("❌ Error: Admin user already exists. Cannot run setup script again.");
     }
+
+    // A. HASH the plain password
+    $hashed_password = password_hash($password_plain, PASSWORD_DEFAULT);

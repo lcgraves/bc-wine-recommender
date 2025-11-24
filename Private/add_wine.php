@@ -128,24 +128,30 @@ require '../Public/includes/header_private.php';
                 <p class="form-subtitle" style="margin-bottom: 1rem;">Select all flavor notes that apply to this wine. (These will populate the many-to-many table.)</p>
                 
                 <div class="notes-grid">
-                    <!-- Fruit/Aroma Notes -->
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Black Cherry"> Black Cherry</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Plum"> Plum</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Raspberry"> Raspberry</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Citrus"> Citrus</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Apple/Pear"> Apple/Pear</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Tropical Fruit"> Tropical Fruit</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Stone Fruit"> Stone Fruit</div>
-                    
-                    <!-- Earthy/Spicy Notes -->
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Vanilla"> Vanilla</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Oak/Toast"> Oak/Toast</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Spice"> Spice</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Earthy/Mushroom"> Earthy/Mushroom</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Mineral"> Mineral</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Leather/Tobacco"> Leather/Tobacco</div>
-                    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="Floral"> Floral</div>
-                </div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="wild_cherry"> Wild Cherry</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="black_fruit"> Black Fruit</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="raspberry"> Raspberry</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="cranberry"> Cranberry</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="strawberry"> Strawberry</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="plum"> Plum</div>
+    
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="mushroom"> Mushroom</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="earthy"> Earthy</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="cedar"> Cedar</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="smoky"> Smoky</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="black_olive"> Black Olive</div>
+
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="lime"> Lime</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="petrol"> Petrol</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="slate_mineral"> Slate/Mineral</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="grapefruit"> Grapefruit</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="citrus_zest"> Citrus Zest</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="saline_maritime"> Saline/Maritime</div>
+
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="bell_pepper"> Bell Pepper</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="floral"> Floral</div>
+    <div class="checkbox-item"><input type="checkbox" name="notes[]" value="elderflower"> Elderflower</div>
+</div>
 
                 <div class="form-actions">
                     <!-- Submit Button -->

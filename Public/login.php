@@ -47,6 +47,14 @@ if (is_post_request()) {
                 $login_message = "Login failed. Invalid username or password.";
             }
 
+            } catch (Exception $e) {
+            // Log the error and provide a generic error message
+            error_log("Login DB error: " . $e->getMessage());
+            $login_message = "A server error occurred during login.";
+        }
+    }
+}
+
 ?>
 
     <main class="container login-wrapper">

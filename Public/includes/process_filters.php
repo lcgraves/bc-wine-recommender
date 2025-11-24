@@ -33,6 +33,7 @@ $sweetness = $_POST['sweetness'] ?? null;
 $notes_filter = $_POST['notes'] ?? null;
 $body = $_POST['body'] ?? null;
 
+
 // Build the base SQL query using an INNER JOIN
 
 $sql = "
@@ -46,6 +47,8 @@ $sql = "
 
 // Initialize parameters array for prepared statement
 $params = [];
+// Initialize display filters array
+$display_filters = [];
 
 // Filter for chosen parameters
 if ($colour) {
@@ -87,7 +90,7 @@ try {
 
     // Store results and filters in session for retrieval on the recommended.php page
     $_SESSION['wine_search_results'] = $recommended_wines;
-    $_SESSION['wine_search_filters'] = $params;
+    $_SESSION['wine_search_filters'] = $display_filters;
 
     // Redirect the user to the display page
     redirect('../recommended.php');

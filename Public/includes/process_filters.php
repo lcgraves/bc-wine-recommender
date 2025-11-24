@@ -27,6 +27,14 @@ if (!is_post_request()) {
 // 3. PROCESSING
 // ===================================
 
+//Define category of flavour notes to notes map
+$category_to_notes_map = [
+    'berry_fruit' => ['wild cherry', 'black fruit', 'raspberry', 'cranberry', 'strawberry', 'plum'],
+    'earthy_spice' => ['mushroom', 'earthy', 'cedar', 'smoky', 'black olive'],
+    'citrus_mineral' => ['lime', 'petrol', 'slate/mineral', 'grapefruit', 'citrus zest', 'saline/maritime'],
+    'vegetal_herbal' => ['bell pepper', 'floral', 'elderflower'],
+];
+
 // Retrieve filter inputs
 $colour = $_POST['colour'] ?? null;
 $sweetness = $_POST['sweetness'] ?? null;

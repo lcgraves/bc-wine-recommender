@@ -35,6 +35,8 @@ if (is_post_request()) {
     $price = post_data('price');
     $description = post_data('description');
 
+    // Tasting Notes (Array of selected notes)
+    $selected_notes = $_POST['notes'] ?? [];
 ?>
 
 <main class="container dashboard-layout">

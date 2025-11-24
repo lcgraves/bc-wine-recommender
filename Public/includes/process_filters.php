@@ -84,3 +84,7 @@ try {
     $_SESSION['wine_search_results'] = $recommended_wines;
     $_SESSION['wine_search_filters'] = $params;
 
+    // Redirect the user to the display page
+    redirect('../recommended.php');
+}
+

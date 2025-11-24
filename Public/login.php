@@ -18,6 +18,12 @@ if (is_post_request()) {
     // Get inputs
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+
+    if (empty($username) || empty($password)) {
+        $login_message = "Please enter both username and password.";
+    }
+
+
 ?>
 
     <main class="container login-wrapper">

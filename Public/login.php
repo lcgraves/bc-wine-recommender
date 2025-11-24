@@ -42,6 +42,10 @@ if (is_post_request()) {
 
                 // Redirect to the dashboard page
                 redirect('/private/dashboard.php');
+            } else {
+                // Display message for login failed
+                $login_message = "Login failed. Invalid username or password.";
+            }
 
 ?>
 

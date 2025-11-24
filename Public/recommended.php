@@ -19,6 +19,14 @@ $filters_raw = $_SESSION['wine_search_filters'] ?? [];
 // Clear the session data after retrieval.
 unset($_SESSION['wine_search_results']);
 unset($_SESSION['wine_search_filters']);
+
+// --- 2. EXTRACT FILTER VALUES FOR DISPLAY ---
+
+// Store filter values for use in the page
+$selected_colour = $filters_raw['colour'] ?? '';
+$selected_sweetness = $filters_raw['sweetness'] ?? '';
+$selected_notes = $filters_raw['notes'] ?? '';
+$selected_body = $filters_raw['body'] ?? '';
 ?>
 
 

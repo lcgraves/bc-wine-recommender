@@ -22,3 +22,13 @@ if (!is_post_request()) {
     // If not a POST request, redirect back to the form page.
     redirect('index.php');
 }
+
+// ===================================
+// 3. PROCESSING
+// ===================================
+
+// Retrieve filter inputs
+$colour = $_POST['colour'] ?? null;
+$sweetness = $_POST['sweetness'] ?? null;
+$notes_filter = $_POST['notes'] ?? null;
+$body = $_POST['body'] ?? null;

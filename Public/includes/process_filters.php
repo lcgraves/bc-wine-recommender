@@ -60,15 +60,15 @@ $display_filters = [];
 
 // Filter for chosen parameters
 if ($colour) {
-    $sql .= " AND w.colour = :colour";
-    $params[':colour'] = $colour;
+    $sql .= " AND w.colour = ?";
+    $params[] = $colour;
     // Store the clean filter value for display
     $display_filters['colour'] = $colour;
 }
 
 if ($sweetness) {
-    $sql .= " AND w.sweetness = :sweetness";
-    $params[':sweetness'] = $sweetness;
+    $sql .= " AND w.sweetness = ?";
+    $params[] = $sweetness;
     $display_filters['sweetness'] = $sweetness;
 }
 
@@ -92,8 +92,8 @@ if ($notes_filter) {
 }
 
 if ($body) {
-    $sql .= " AND w.body = :body";
-    $params[':body'] = $body;
+    $sql .= " AND w.body = ?";
+    $params[] = $body;
     $display_filters['body'] = $body;
 }
 

@@ -32,3 +32,15 @@ $colour = $_POST['colour'] ?? null;
 $sweetness = $_POST['sweetness'] ?? null;
 $notes_filter = $_POST['notes'] ?? null;
 $body = $_POST['body'] ?? null;
+
+// Build the base SQL query using an INNER JOIN
+
+$sql = "
+    SELECT DISTINCT 
+        w.wine_id, w.name, w.winery, w.region, w.colour, w.body, w.sweetness, 
+        w.price, w.description, w.image_url 
+    FROM wine AS w 
+    INNER JOIN `tasting-notes` AS t ON w.wine_id = t.wine_fk 
+    WHERE 1=1
+";
+$params = [];

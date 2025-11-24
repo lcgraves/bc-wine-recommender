@@ -60,6 +60,10 @@ if (is_post_request()) {
     <main class="container login-wrapper">
         <div class="login-card">
             <h1 class="recommender-title" style="font-size: 2rem; margin-bottom: 2rem;">Admin Login</h1>
+
+            <?php if ($login_message): ?>
+                <p class="error-message" style="color: darkred; font-weight: bold; margin-bottom: 1rem;"><?= html_escape($login_message) ?></p>
+            <?php endif; ?>
             
             <!-- This form submits credentials to PHP on backend -->
             <form action="login.php" method="POST">

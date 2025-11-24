@@ -16,6 +16,9 @@ $wines = $_SESSION['wine_search_results'] ?? [];
 // Get the filters used for the search (e.g., [':colour' => 'Red'])
 $filters_raw = $_SESSION['wine_search_filters'] ?? [];
 
+// Clear the session data after retrieval.
+unset($_SESSION['wine_search_results']);
+unset($_SESSION['wine_search_filters']);
 ?>
 
 

@@ -8,6 +8,14 @@ require_once 'includes/Database.php';
 $page_title = "Recommended Wines";
 require 'includes/header.php';
 require 'includes/nav.php';
+
+// --- 1. RETRIEVE WINE DATA AND FILTERS FROM SESSION ---
+
+// Get the results (the array of matching wine rows)
+$wines = $_SESSION['wine_search_results'] ?? [];
+// Get the filters used for the search (e.g., [':colour' => 'Red'])
+$filters_raw = $_SESSION['wine_search_filters'] ?? [];
+
 ?>
 
 

@@ -73,9 +73,22 @@ if ($sweetness) {
 }
 
 if ($notes_filter) {
-    $sql .= " AND t.flavour_note LIKE :notes_filter";
-    $params[':notes_filter'] = '%' . $notes_filter . '%';
-    $display_filters['notes'] = $notes_filter;
+    // 1. Get the list of specific notes from the map
+    $specific_notes = $category_to_notes_map[$notes_filter] ?? [];
+
+    if (!empty($specific_notes)) {
+        // 2. Create placeholders based on the count of notes
+        $placeholders = implode(', ', array_fill(0, count($specific_notes), '?'));
+
+        // 3. Append the SQL WHERE IN clause
+        $sql .= " AND t.flavour_note IN ({$placeholders})";
+        
+        // 4. Merge the specific notes array (the values) into the $params array
+        $params = array_merge($params, $specific_notes); 
+        
+        // 5. Store the clean category value for display
+        $display_filters['notes'] = $notes_filter;
+    }
 }
 
 if ($body) {

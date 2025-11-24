@@ -48,6 +48,12 @@ try {
     } else {
         $stats['last_updated'] = "No Data Yet"; 
     }
+    
+    } catch (PDOException $e) {
+    // Log the error and prevent crashing the dashboard
+    error_log("Dashboard Data Error: " . $e->getMessage());
+    $stats['last_updated'] = "DB Error"; 
+}
 
 ?>
 

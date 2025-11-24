@@ -30,12 +30,24 @@ try {
     $stats['total_wines'] = $stmt->fetchColumn(); // Fetch single value
 
     // B. Total Red Wines (Assumes you have a 'type' column for wine color)
-    $stmt = executePS($pdo, "SELECT COUNT(*) FROM wines WHERE colour = 'Red'");
+    $stmt = executePS($pdo, "SELECT COUNT(*) FROM wine WHERE colour = 'Red'");
     $stats['red_wines'] = $stmt->fetchColumn();
 
     // C. Number of Admins (Users in your admin table)
     $stmt = executePS($pdo, "SELECT COUNT(*) FROM admin");
     $stats['total_admins'] = $stmt->fetchColumn();
+
+  // D. Last Data Update (Finds the most recent 'updated_at' timestamp)
+    $stmt = executePS($pdo, "SELECT MAX(updated_at) FROM wine");
+    $last_update_raw = $stmt->fetchColumn();
+    
+    // Format the date for display, or set 'N/A'
+    if ($last_update_raw) {
+        // Use PHP's DateTime to format the timestamp
+        $stats['last_updated'] = date('m/d/Y', strtotime($last_update_raw));
+    } else {
+        $stats['last_updated'] = "No Data Yet"; 
+    }
 
 ?>
 

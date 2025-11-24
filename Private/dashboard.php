@@ -25,9 +25,13 @@ $stats = [
 ];
 
 try {
-    // A. Total BC Wines (Assumes your main wine table is named 'wines')
-    $stmt = executePS($pdo, "SELECT COUNT(*) FROM wines");
-    $stats['total_wines'] = $stmt->fetchColumn();
+    // A. Total BC Wines 
+    $stmt = executePS($pdo, "SELECT COUNT(*) FROM wine");
+    $stats['total_wines'] = $stmt->fetchColumn(); // Fetch single value
+
+    // B. Total Red Wines (Assumes you have a 'type' column for wine color)
+    $stmt = executePS($pdo, "SELECT COUNT(*) FROM wines WHERE colour = 'Red'");
+    $stats['red_wines'] = $stmt->fetchColumn();
 
 ?>
 

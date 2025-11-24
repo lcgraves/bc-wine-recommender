@@ -1,4 +1,8 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 //Start session to retain login state
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -26,14 +30,14 @@ if (is_post_request()) {
     else {
         try {
             // A. Fetch the user's record based on the username
-            $sql = "SELECT id, username, hashed_password FROM admin_users WHERE username = :username";
+            $sql = "SELECT id, username, password FROM admin WHERE username = :username";
             $params = [':username' => $username];
             
             $stmt = executePS($pdo, $sql, $params);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // B. Verify the password if user exists
-            if ($user && password_verify($password, $user['hashed_password'])) {
+            if ($user && password_verify($password, $user['password'])) {
                 
                 // SUCCESS: Set session variables and redirect
                 $_SESSION['admin_logged_in'] = true;
@@ -41,7 +45,7 @@ if (is_post_request()) {
                 $_SESSION['admin_username'] = $user['username'];
 
                 // Redirect to the dashboard page
-                redirect('/private/dashboard.php');
+                redirect('/Private/dashboard.php');
             } else {
                 // Display message for login failed
                 $login_message = "Login failed. Invalid username or password.";

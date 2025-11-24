@@ -43,4 +43,27 @@ $sql = "
     INNER JOIN `tasting-notes` AS t ON w.wine_id = t.wine_fk 
     WHERE 1=1
 ";
+
+// Initialize parameters array for prepared statement
 $params = [];
+
+// Filter for choses parameters
+if ($colour) {
+    $sql .= " AND w.colour = :colour";
+    $params[':colour'] = $colour;
+}
+
+if ($sweetness) {
+    $sql .= " AND w.sweetness = :sweetness";
+    $params[':sweetness'] = $sweetness;
+}
+
+if ($notes_filter) {
+    $sql .= " AND t.flavour_note LIKE :notes_filter";
+    $params[':notes_filter'] = '%' . $notes_filter . '%';
+}
+
+if ($body) {
+    $sql .= " AND w.body = :body";
+    $params[':body'] = $body;
+}

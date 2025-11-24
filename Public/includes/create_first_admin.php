@@ -37,3 +37,8 @@ try {
     echo "Username: <strong>" . html_escape($username) . "</strong><br>"; // Using your html_escape for safety
     echo "Password: (The one you chose)<br><br>";
     echo "<strong>🚨 SECURITY WARNING: DELETE OR RENAME THIS FILE IMMEDIATELY!</strong>";
+
+    } catch (PDOException $e) {
+    // Catch database errors
+    die("Database Error: " . html_escape($e->getMessage()));
+}

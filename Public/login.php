@@ -40,6 +40,9 @@ if (is_post_request()) {
                 $_SESSION['admin_user_id'] = $user['id'];
                 $_SESSION['admin_username'] = $user['username'];
 
+                // Redirect to the dashboard page
+                redirect('/private/dashboard.php');
+
 ?>
 
     <main class="container login-wrapper">

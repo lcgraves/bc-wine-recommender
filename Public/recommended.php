@@ -95,6 +95,48 @@ $selected_body = $filters_raw['body'] ?? '';
             <!-- Container where wine cards will eventually be loaded -->
             <div id="wine-card-container" class="wine-card-container">
                 
+                <?php if (empty($wines)): ?>
+                    <p class="no-results-message">
+                        😔 Sorry, no wines matched your selection! Please try adjusting your filters.
+                    </p>
+                <?php else: ?>
+                    
+                    <?php foreach ($wines as $wine): ?>
+                        <div class="wine-card">
+                            <img src="<?php echo htmlspecialchars($wine['image_url']); ?>" 
+                                 alt="<?php echo htmlspecialchars($wine['name']); ?>" 
+                                 class="wine-card-image">
+                            
+                            <div class="wine-card-info">
+                                <h3 class="wine-card-name"><?php echo htmlspecialchars($wine['name']); ?></h3>
+                                <p class="wine-card-winery">
+                                    <?php echo htmlspecialchars($wine['winery']); ?> (<?php echo htmlspecialchars($wine['region']); ?>)
+                                </p>
+                                
+                                <p class="wine-card-price">
+                                    <strong>$<?php echo number_format($wine['price'], 2); ?></strong>
+                                </p>
+                                
+                                <hr>
+                                
+                                <p class="wine-card-description">
+                                    <?php 
+                                        // Display the first 150 characters of the description for card view
+                                        $desc = htmlspecialchars($wine['description']);
+                                        echo (strlen($desc) > 150) ? substr($desc, 0, 150) . '...' : $desc;
+                                    ?>
+                                </p>
+                                
+                                <div class="wine-card-details">
+                                    <span>Colour: <?php echo htmlspecialchars($wine['colour']); ?></span> |
+                                    <span>Body: <?php echo htmlspecialchars($wine['body']); ?></span> |
+                                    <span>Sweetness: <?php echo htmlspecialchars($wine['sweetness']); ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    
+                <?php endif; ?>
                 
             </div>
 

@@ -67,3 +67,6 @@ if ($body) {
     $sql .= " AND w.body = :body";
     $params[':body'] = $body;
 }
+
+// Add an ORDER BY clause do display results by price ascending
+$sql .= " ORDER BY w.price ASC";

@@ -70,3 +70,12 @@ if ($body) {
 
 // Add an ORDER BY clause do display results by price ascending
 $sql .= " ORDER BY w.price ASC";
+
+// ===================================
+// 4. EXECUTION & REDIRECT
+// ===================================
+
+try {
+    // Execute the prepared statement
+    $stmt = executePS($pdo, $sql, $params);
+    $recommended_wines = $stmt->fetchAll(); // Results are fetched here

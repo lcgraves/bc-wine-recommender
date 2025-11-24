@@ -32,7 +32,14 @@ if (is_post_request()) {
             $stmt = executePS($pdo, $sql, $params);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            
+            // B. Verify the password if user exists
+            if ($user && password_verify($password, $user['hashed_password'])) {
+                
+                // SUCCESS: Set session variables and redirect
+                $_SESSION['admin_logged_in'] = true;
+                $_SESSION['admin_user_id'] = $user['id'];
+                $_SESSION['admin_username'] = $user['username'];
+
 ?>
 
     <main class="container login-wrapper">

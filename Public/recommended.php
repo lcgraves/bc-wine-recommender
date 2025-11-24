@@ -1,10 +1,15 @@
 
 <?php
+// Continue session started in process_filters.php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'includes/Database.php';
 $page_title = "Recommended Wines";
 require 'includes/header.php';
 require 'includes/nav.php';
 ?>
+
 
 
     <main class="container main-content">

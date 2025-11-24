@@ -12,7 +12,12 @@ require 'includes/nav.php';
 $pdo = createDBConnection();
 $login_message = ''; // Variable to store feedback messages
 
-
+// --- 2. LOGIN PROCESSING LOGIC ---
+if (is_post_request()) {
+    
+    // Get inputs
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 ?>
 
     <main class="container login-wrapper">

@@ -19,6 +19,7 @@ $pdo = createDBConnection();
 
 // Initialize message variable
 $message = '';
+$error = false; // flag to track errors
 
 ?>
 

@@ -23,7 +23,16 @@ if (is_post_request()) {
         $login_message = "Please enter both username and password.";
     }
 
+    else {
+        try {
+            // A. Fetch the user's record based on the username
+            $sql = "SELECT id, username, hashed_password FROM admin_users WHERE username = :username";
+            $params = [':username' => $username];
+            
+            $stmt = executePS($pdo, $sql, $params);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            
 ?>
 
     <main class="container login-wrapper">

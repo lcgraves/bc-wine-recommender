@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 //Start session to retain login state
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -45,7 +42,7 @@ if (is_post_request()) {
                 $_SESSION['admin_username'] = $user['username'];
 
                 // Redirect to the dashboard page
-                redirect('/Private/dashboard.php');
+                redirect('../Private/dashboard.php');
             } else {
                 // Display message for login failed
                 $login_message = "Login failed. Invalid username or password.";

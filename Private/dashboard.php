@@ -24,6 +24,11 @@ $stats = [
     'last_updated' => 'N/A'
 ];
 
+try {
+    // A. Total BC Wines (Assumes your main wine table is named 'wines')
+    $stmt = executePS($pdo, "SELECT COUNT(*) FROM wines");
+    $stats['total_wines'] = $stmt->fetchColumn();
+
 ?>
 
 

@@ -21,6 +21,20 @@ $pdo = createDBConnection();
 $message = '';
 $error = false; // flag to track errors
 
+if (is_post_request()) {
+    
+    // --- 1. Collect and Prepare Data ---
+    
+    // General Wine Details
+    $name = post_data('name');
+    $winery = post_data('winery');
+    $region = post_data('region');
+    $colour = post_data('colour');
+    $body = post_data('body');
+    $sweetness = post_data('sweetness');
+    $price = post_data('price');
+    $description = post_data('description');
+
 ?>
 
 <main class="container dashboard-layout">

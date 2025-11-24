@@ -86,5 +86,12 @@ try {
 
     // Redirect the user to the display page
     redirect('../recommended.php');
+    
+} catch (PDOException $e) {
+    // Handle database errors
+    error_log("Database Query Failed: " . $e->getMessage());
+    $_SESSION['error_message'] = "A server error occurred during the search.";
+    redirect('index.php'); 
 }
+
 

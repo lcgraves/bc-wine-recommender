@@ -3,11 +3,16 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 $page_title = "Login";
 require_once 'includes/Database.php';
 require 'includes/header.php';
 require 'includes/nav.php';
+
+// Connect to database
+$pdo = createDBConnection();
+$login_message = ''; // Variable to store feedback messages
+
+
 ?>
 
     <main class="container login-wrapper">

@@ -29,4 +29,5 @@ try {
     // B. DEFINE SQL (using positional placeholders ?)
     $sql = "INSERT INTO admin (username, password) VALUES (?, ?)";
 
-    
+    // C. EXECUTE prepared SQL statement
+    executePS($pdo, $sql, [$username, $hashed_password]);

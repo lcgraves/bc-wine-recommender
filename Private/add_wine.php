@@ -37,6 +37,9 @@ if (is_post_request()) {
 
     // Tasting Notes (Array of selected notes)
     $selected_notes = $_POST['notes'] ?? [];
+
+    // Initialize image path variable
+    $image_url_db = '';
 ?>
 
 <main class="container dashboard-layout">

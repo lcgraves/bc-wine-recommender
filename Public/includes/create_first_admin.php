@@ -6,7 +6,7 @@
 require_once 'database.php';
 
 // 1. DEFINE THE FIRST ADMIN CREDENTIALS
-$username = 'laracraves'; 
+$username = 'laragraves'; 
 $password_plain = 'ilovephp'; 
 
 // 2. Connet to database and check for existing admins

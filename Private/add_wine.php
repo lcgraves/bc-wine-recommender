@@ -16,7 +16,9 @@ require '../Public/includes/header_private.php';
 
 // create db connection
 $pdo = createDBConnection();
-  
+
+// Initialize message variable
+$message = '';
 
 ?>
 
@@ -51,7 +53,7 @@ $pdo = createDBConnection();
         <p class="form-subtitle">Fill out the details below to add a new BC wine to the recommender database.</p>
 
         <!-- The form action will point to itself -->
-        <form action="add_wine.php" method="POST">
+        <form action="add_wine.php" method="POST enctype="multipart/form-data">
 
             <!-- Section 1: Core Wine Details (Maps to 'wines' table) -->
             <h2 class="form-section-header">Product Information</h2>
@@ -72,8 +74,9 @@ $pdo = createDBConnection();
             </div>
 
             <div class="form-group">
-                <label for="image_url" class="form-label">Image URL (Direct link to bottle image)</label>
-                <input type="url" id="image_url" name="image_url" class="form-input">
+                <label for="image_url" class="form-label">Image</label>
+                <input type="file" id="image_file" name="image_file" class="form-input" accept="image/*">
+                <p class="help-text">Allowed formats: JPG, PNG, GIF, WebP. Maximum size: 5MB</p>
             </div>
 
             <div class="form-group">

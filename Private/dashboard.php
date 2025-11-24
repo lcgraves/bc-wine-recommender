@@ -16,6 +16,9 @@ require '../Public/includes/header_private.php';
 
 // --- 1. RETRIEVE DATA FROM DATABASE ---
 
+//connect to database
+$pdo = createDBConnection();
+
 // Initialize stats array
 $stats = [
     'total_wines' => 0,
@@ -48,7 +51,7 @@ try {
     } else {
         $stats['last_updated'] = "No Data Yet"; 
     }
-    
+
     } catch (PDOException $e) {
     // Log the error and prevent crashing the dashboard
     error_log("Dashboard Data Error: " . $e->getMessage());
@@ -98,22 +101,22 @@ try {
             <!-- Placeholder Stat Cards (PHP will populate these values) -->
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-value"><?php /* PHP: echo $total_wines; */ ?>124</div>
+                    <div class="stat-value"><?= $stats['total_wines'] ?></div>
                     <div class="stat-label">Total BC Wines</div>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-value"><?php /* PHP: echo $active_editors; */ ?>3</div>
+                    <div class="stat-value"><?= $stats['total_admins'] ?></div>
                     <div class="stat-label">Active Editors</div>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-value"><?php /* PHP: echo $red_wines; */ ?>56</div>
+                    <div class="stat-value"><?= $stats['red_wines'] ?></div>
                     <div class="stat-label">Red Wines in Database</div>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-value"><?php /* PHP: echo $latest_update; */ ?>10/18/2025</div>
+                    <div class="stat-value"><?= $stats['last_updated'] ?></div>
                     <div class="stat-label">Last Data Update</div>
                 </div>
             </div>

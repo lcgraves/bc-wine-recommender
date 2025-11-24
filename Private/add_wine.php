@@ -46,6 +46,9 @@ if (is_post_request()) {
         $message = "Error: Please fill out all required fields and ensure the price is valid.";
         $error = true;
     }
+
+    // --- 3. Handle File Upload ---
+    $file_upload_status = ''; // For debugging or feedback
 ?>
 
 <main class="container dashboard-layout">

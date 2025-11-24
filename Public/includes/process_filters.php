@@ -13,3 +13,12 @@ require_once 'database.php';
 // Connect to database
 $pdo = createDBConnection(); 
 
+// ===================================
+// 2. REQUEST VALIDATION
+// ===================================
+
+// Check if the request is a POST submission
+if (!is_post_request()) {
+    // If not a POST request, redirect back to the form page.
+    redirect('index.php');
+}

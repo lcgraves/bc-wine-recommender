@@ -14,6 +14,16 @@ $page_title = "Admin Dashboard";
 require_once '../Public/includes/Database.php';
 require '../Public/includes/header_private.php';
 
+// --- 1. RETRIEVE DATA FROM DATABASE ---
+
+// Initialize stats array
+$stats = [
+    'total_wines' => 0,
+    'total_admins' => 0,
+    'red_wines' => 0,
+    'last_updated' => 'N/A'
+];
+
 ?>
 
 

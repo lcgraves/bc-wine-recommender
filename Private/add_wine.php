@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Wine Profile | The BC Pour Admin</title>
-    <!-- Assuming this is the correct path to your external stylesheet -->
-    <link rel="stylesheet" href="/bc-wine-recommender/Public/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-wine-bg">
+<?php
+// Ensure session has been started and user logged in
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-    <!-- Header (Consistent Navigation) -->
-    <header class="header">
-        <div class="container header-content">
-            <a href="/bc-wine-recommender/Public/index.php" class="logo">The BC Pour</a>
-            <nav class="nav">
-                <a href="index.php" class="nav-link">Home</a>
-                <a href="logout.php" class="button button-third">Log Out</a>
-            </nav>
-        </div>
-    </header>
+// Redirect user if not logged in successfully
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    require_once '../Public/includes/Database.php'; // Need redirect() function
+    redirect('../Public/login.php');
+}
+
+$page_title = "Add New Wine";
+require_once '../Public/includes/Database.php';
+require '../Public/includes/header_private.php';
+
+?>
 
     <main class="container dashboard-layout">
         
@@ -168,11 +163,5 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container text-center">
-            &copy; 2025 The BC Pour Admin | Supporting BC Wine.
-        </div>
-    </footer>
+    <?php require '../Public/includes/footer.php'; ?>
     
-</body>
-</html>

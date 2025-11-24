@@ -25,3 +25,8 @@ try {
 
     // A. HASH the plain password
     $hashed_password = password_hash($password_plain, PASSWORD_DEFAULT);
+
+    // B. DEFINE SQL (using positional placeholders ?)
+    $sql = "INSERT INTO admin (username, password) VALUES (?, ?)";
+
+    

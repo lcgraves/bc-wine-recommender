@@ -40,6 +40,12 @@ if (is_post_request()) {
 
     // Initialize image path variable
     $image_url_db = '';
+
+    // --- 2. Basic Validation ---
+    if (empty($name) || empty($winery) || empty($region) || empty($colour) || empty($body) || empty($sweetness) || !is_numeric($price)) {
+        $message = "Error: Please fill out all required fields and ensure the price is valid.";
+        $error = true;
+    }
 ?>
 
 <main class="container dashboard-layout">

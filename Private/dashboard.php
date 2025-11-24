@@ -33,6 +33,10 @@ try {
     $stmt = executePS($pdo, "SELECT COUNT(*) FROM wines WHERE colour = 'Red'");
     $stats['red_wines'] = $stmt->fetchColumn();
 
+    // C. Number of Admins (Users in your admin table)
+    $stmt = executePS($pdo, "SELECT COUNT(*) FROM admin");
+    $stats['total_admins'] = $stmt->fetchColumn();
+
 ?>
 
 

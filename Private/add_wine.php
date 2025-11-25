@@ -57,6 +57,10 @@ if (is_post_request()) {
         $file_name = $_FILES['image_file']['name'];
         $file_size = $_FILES['image_file']['size'];
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+
+        // Define allowed extensions and max size
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'webp', 'avif'];
+        $max_size = 5 * 1024 * 1024; // 5MB
 ?>
 
 <main class="container dashboard-layout">

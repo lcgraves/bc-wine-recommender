@@ -112,7 +112,7 @@ if (is_post_request()) {
 
         // Insert into TASTING-NOTES table
             if (!empty($selected_notes)) {
-                $sql_note = "INSERT INTO tasting-notes (wine_fk, flavour_note) VALUES (?, ?)";
+                $sql_note = "INSERT INTO `tasting-notes` (wine_fk, flavour_note) VALUES (?, ?)";
                 $stmt_note = $pdo->prepare($sql_note);
 
                 foreach ($selected_notes as $note_value) {

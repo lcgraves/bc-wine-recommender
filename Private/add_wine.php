@@ -49,6 +49,14 @@ if (is_post_request()) {
 
     // --- 3. Handle File Upload ---
     $file_upload_status = ''; // For debugging or feedback
+
+    // Check if a file was uploaded successfully
+    if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
+        
+        $file_tmp_name = $_FILES['image_file']['tmp_name'];
+        $file_name = $_FILES['image_file']['name'];
+        $file_size = $_FILES['image_file']['size'];
+        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 ?>
 
 <main class="container dashboard-layout">

@@ -92,6 +92,12 @@ if (is_post_request()) {
         $message = "Error: Image upload failed or no image was selected.";
         $error = true;
     }
+
+// --- 4. Database Transaction ---
+    if (!$error) { // Only proceed if no errors
+        
+        try {
+            $pdo->beginTransaction();
 ?>
 
 <main class="container dashboard-layout">

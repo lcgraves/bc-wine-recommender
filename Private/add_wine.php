@@ -74,6 +74,9 @@ if (is_post_request()) {
         if (!$error) {
             // Generate a unique file name to prevent overwrites
             $new_file_name = uniqid('wine_', true) . '.' . $file_ext;
+
+        // Define the final target path
+            $target_file = UPLOAD_PATH . $new_file_name;
 ?>
 
 <main class="container dashboard-layout">

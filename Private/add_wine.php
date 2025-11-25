@@ -109,6 +109,16 @@ if (is_post_request()) {
 
         executePS($pdo, $sql_wine, $params_wine);
         $new_wine_id = $pdo->lastInsertId();
+
+        // Insert into TASTING_NOTES table
+            if (!empty($selected_notes)) {
+                $sql_note = "INSERT INTO tasting_notes (wine_fk, flavour_note) VALUES (?, ?)";
+                $stmt_note = $pdo->prepare($sql_note);
+
+                foreach ($selected_notes as $note_value) {
+                    $stmt_note->execute([$new_wine_id, $note_value]);
+                }
+            }
 ?>
 
 <main class="container dashboard-layout">

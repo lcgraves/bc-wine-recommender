@@ -61,6 +61,15 @@ if (is_post_request()) {
         // Define allowed extensions and max size
         $allowed_extensions = ['jpg', 'jpeg', 'png', 'webp', 'avif'];
         $max_size = 5 * 1024 * 1024; // 5MB
+
+        // File validation
+        if (!in_array($file_ext, $allowed_extensions)) {
+            $message = "Error: Invalid file type. Only JPG, PNG, WEBP, and AVIF are allowed.";
+            $error = true;
+        } elseif ($file_size > $max_size) {
+            $message = "Error: File size exceeds the 5MB limit.";
+            $error = true;
+        }
 ?>
 
 <main class="container dashboard-layout">

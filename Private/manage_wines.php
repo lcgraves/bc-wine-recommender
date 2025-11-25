@@ -17,11 +17,12 @@ require '../Public/includes/header_private.php';
 // create db connection
 $pdo = createDBConnection();
 
+// Fetch all wines from the database
+$sql_wines = "SELECT wine_id, name, colour, body, sweetness, price FROM wine ORDER BY wine_id DESC";
+$stmt_wines = executePS($pdo, $sql_wines);
+$wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<main>
-
-</main>
 
 <!-- Footer -->
 <?php require '../Public/includes/footer.php'; ?>

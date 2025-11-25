@@ -70,6 +70,10 @@ if (is_post_request()) {
             $message = "Error: File size exceeds the 5MB limit.";
             $error = true;
         }
+
+        if (!$error) {
+            // Generate a unique file name to prevent overwrites
+            $new_file_name = uniqid('wine_', true) . '.' . $file_ext;
 ?>
 
 <main class="container dashboard-layout">

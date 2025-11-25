@@ -15,7 +15,7 @@
             <a href="/bc-wine-recommender/Public/index.php" class="logo">The BC Pour</a>
             <nav class="nav">
                 <!-- The Logout link -->
-                <a href="/Private/logout.php" class="button button-third">Log Out</a>
+                <a href="/bc-wine-recommender/Private/logout.php" class="button button-third">Log Out</a>
             </nav>
         </div>
     </header>

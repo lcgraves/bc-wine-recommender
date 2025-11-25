@@ -1,9 +1,14 @@
 <?php
+
+// FORCED ERROR REPORTING
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Access session data
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once 'includes/Database.php';
+require_once '../Public/includes/Database.php';
 
 // --- 1. TERMINATE SESSION ---
 

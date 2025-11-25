@@ -12,7 +12,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 $page_title = "Admin Dashboard";
 require_once '../Public/includes/Database.php';
-require '../Public/includes/header_private.php';
+require 'includes/header_private.php';
+require 'includes/side_nav.php';
 
 // --- 1. RETRIEVE DATA FROM DATABASE ---
 
@@ -61,35 +62,6 @@ try {
 ?>
 
 
-    <main class="container dashboard-layout">
-        
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <h2 class="sidebar-title">Dashboard</h2>
-            <nav class="sidebar-menu">
-                <!-- Dashboard Home -->
-                <a href="admin.php" class="active">Overview</a> 
-                
-                <!-- Wine Management -->
-                <a href="manage_wines.php">Manage Wines</a>
-                
-                <!-- Add Wine directly via sidebar -->
-                <a href="add_wine.php">Add New Wine</a>
-                
-                <!-- User Management (Only shown if user_role is 'admin' via PHP) -->
-                <?php 
-                    /* // Example PHP Logic to conditionally display this link
-                    if ($_SESSION['user_role'] === 'admin') {
-                        echo '<a href="manage_users.php">Manage Admin Users</a>';
-                    }
-                    */
-                ?>
-                
-                <hr class="sidebar-separator">
-                
-                <a href="logout.php">Log Out</a>
-            </nav>
-        </aside>
 
         <!-- Main Content Area -->
         <section class="main-content">

@@ -12,7 +12,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 $page_title = "Add New Wine";
 require_once '../Public/includes/Database.php';
-require '../Public/includes/header_private.php';
+require 'includes/header_private.php';
+require 'includes/side_nav.php';
 
 // create db connection
 $pdo = createDBConnection();
@@ -137,24 +138,6 @@ if (is_post_request()) {
     }
 }
 ?>
-
-<main class="container dashboard-layout">
-
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <!-- Class: sidebar-title replaces inline styles for H2 -->
-        <h2 class="sidebar-title">Dashboard</h2>
-        <nav class="sidebar-menu">
-            <a href="dashboard.php">Overview</a>
-            <a href="manage_wines.php">Manage Wine</a>
-            <a href="add_wine.php" class="active">Add New Wine</a>
-
-            
-            <hr class="sidebar-separator">
-
-            <a href="logout.php">Log Out</a>
-        </nav>
-    </aside>
 
     <!-- Main Content Area: Add Wine Form -->
     <section class="main-content">

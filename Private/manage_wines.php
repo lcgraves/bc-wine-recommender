@@ -12,7 +12,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 $page_title = "Manage Wines";
 require_once '../Public/includes/Database.php';
-require '../Public/includes/header_private.php';
+require 'includes/header_private.php';
+require 'includes/side_nav.php';
 
 // create db connection
 $pdo = createDBConnection();
@@ -24,7 +25,7 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-<main class="container">
+<section class="container">
         <h1>Manage Wines 🍷</h1>
         
         <p>
@@ -40,8 +41,6 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID</th>
                         <th>Name</th>
                         <th>Colour</th>
-                        <th>Body</th>
-                        <th>Sweetness</th>
                         <th>Price</th>
                         <th>Actions</th>
                     </tr>
@@ -50,10 +49,8 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($wines as $wine): ?>
                         <tr>
                             <td><?= html_escape($wine['wine_id']) ?></td>
-                            <td><?= html_escape($wine['name']) ?></td>
+                            <td class="wine-name"><?= html_escape($wine['name']) ?></td>
                             <td><?= html_escape($wine['colour']) ?></td>
-                            <td><?= html_escape($wine['body']) ?></td>
-                            <td><?= html_escape($wine['sweetness']) ?></td>
                             <td>$<?= html_escape(number_format($wine['price'], 2)) ?></td>
                         <td class="action-buttons">
                             <!-- pass wine id via query string-->
@@ -71,7 +68,8 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
             </table>
         <?php endif; ?>
                     
-    </main>
+    </section>
+</main>
 
 <!-- Footer -->
 <?php require '../Public/includes/footer.php'; ?>

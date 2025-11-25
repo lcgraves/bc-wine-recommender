@@ -119,7 +119,11 @@ if (is_post_request()) {
                     $stmt_note->execute([$new_wine_id, $note_value]);
                 }
             }
-?>
+
+        // Finalize database transaction
+            $pdo->commit();
+
+            ?>
 
 <main class="container dashboard-layout">
 

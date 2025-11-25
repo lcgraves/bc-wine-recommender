@@ -87,6 +87,10 @@ if (is_post_request()) {
                 $error = true;
             }
         }
+    } else {
+        // Handle case where file upload failed or no file was submitted
+        $message = "Error: Image upload failed or no image was selected.";
+        $error = true;
     }
 ?>
 

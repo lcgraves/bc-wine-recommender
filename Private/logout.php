@@ -22,3 +22,7 @@ if (ini_get("session.use_cookies")) {
 
 // 3. Destroy the session data file on the server
 session_destroy();
+
+// --- 2. REDIRECT TO LOGIN PAGE ---
+
+redirect('../Public/login.php');

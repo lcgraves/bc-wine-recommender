@@ -98,6 +98,10 @@ if (is_post_request()) {
         
         try {
             $pdo->beginTransaction();
+
+        // Insert into WINES table
+            $sql_wine = "INSERT INTO wines (name, winery, region, colour, body, sweetness, price, description, image_url) 
+                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 ?>
 
 <main class="container dashboard-layout">

@@ -55,7 +55,16 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= html_escape($wine['body']) ?></td>
                             <td><?= html_escape($wine['sweetness']) ?></td>
                             <td>$<?= html_escape(number_format($wine['price'], 2)) ?></td>
-                            
+                        <td class="action-buttons">
+                            // pass wine id via query string
+                                <a href="edit-wine.php?id=<?= $wine['wine_id'] ?>" class="button button-secondary button-small">Edit</a>
+                            // use post method to hide sensitive data
+                                <form action="delete-wine.php" method="POST" style="display: inline;" 
+                                      onsubmit="return confirm('Are you sure you want to delete <?= html_escape($wine['name']) ?>?');">
+                                    <input type="hidden" name="wine_id" value="<?= $wine['wine_id'] ?>">
+                                    <button type="submit" class="button button-danger button-small">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -24,5 +24,31 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
+<main class="container">
+        <h1>Manage Wines 🍷</h1>
+        
+        <p>
+            <a href="add_wine.php" class="button button-primary">Add New Wine</a>
+        </p>
+
+        <?php if (empty($wines)): ?>
+            <p>No wines found in the database.</p>
+        <?php else: ?>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Colour</th>
+                        <th>Body</th>
+                        <th>Sweetness</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+    </main>
+
 <!-- Footer -->
 <?php require '../Public/includes/footer.php'; ?>

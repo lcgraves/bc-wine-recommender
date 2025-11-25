@@ -184,8 +184,15 @@ if (is_post_request()) {
             </div>
 
             <div class="form-group">
-                <label for="region" class="form-label">Region (e.g., Okanagan Valley, Fraser Valley)</label>
-                <input type="text" id="region" name="region" class="form-input" required>
+                <label for="region" class="form-label">Region</label>
+                <select id="region" name="region" class="form-select" required>
+                    <option value="">Select Region...</option>
+                    <option value="Okanagan Valley">Okanagan Valley</option>
+                    <option value="Similkameen Valley">Similkameen Valley</option>
+                    <option value="Vancouver Island">Vancouver Island</option>
+                    <option value="Fraser Valley">Fraser Valley</option>
+                    <option value="Thompson Valley">Thompson Valley</option>
+                </select>
             </div>
 
             <div class="form-group">

@@ -77,6 +77,17 @@ if (is_post_request()) {
 
         // Define the final target path
             $target_file = UPLOAD_PATH . $new_file_name;
+
+        // Attempt to move the file
+            if (move_uploaded_file($file_tmp_name, $target_file)) {
+                // Success! Create the relative URL path required by the DB
+                $image_url_db = 'images/' . $new_file_name;
+            } else {
+                $message = "Error: Failed to move uploaded file. Check directory permissions.";
+                $error = true;
+            }
+        }
+    }
 ?>
 
 <main class="container dashboard-layout">

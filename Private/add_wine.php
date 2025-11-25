@@ -123,6 +123,11 @@ if (is_post_request()) {
         // Finalize database transaction
             $pdo->commit();
 
+            // Save success message and redirect to dashboard
+            $_SESSION['success_message'] = "✅ Wine **" . html_escape($name) . "** successfully added!";
+            redirect('dashboard.php');
+?>
+
             ?>
 
 <main class="container dashboard-layout">

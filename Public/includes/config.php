@@ -16,7 +16,7 @@ define ('DB_USER', 'root');
 
 define('SITE_NAME', 'BC Wine Recommender');
 define('BASE_URL', 'http://localhost/bc-wine-recommender/Public/');
-define('UPLOAD_PATH', __DIR__ . '/../Public/images/');
+define('UPLOAD_PATH', __DIR__ . '/../images/');
 
 /* Error reporting for production environment */
 

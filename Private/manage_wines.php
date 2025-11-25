@@ -47,6 +47,20 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 </thead>
                 <tbody>
+            <?php foreach ($wines as $wine): ?>
+                        <tr>
+                            <td><?= html_escape($wine['wine_id']) ?></td>
+                            <td><?= html_escape($wine['name']) ?></td>
+                            <td><?= html_escape($wine['colour']) ?></td>
+                            <td><?= html_escape($wine['body']) ?></td>
+                            <td><?= html_escape($wine['sweetness']) ?></td>
+                            <td>$<?= html_escape(number_format($wine['price'], 2)) ?></td>
+                            
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
                     
     </main>
 

@@ -99,8 +99,8 @@ if (is_post_request()) {
         try {
             $pdo->beginTransaction();
 
-        // Insert into WINES table
-            $sql_wine = "INSERT INTO wines (name, winery, region, colour, body, sweetness, price, description, image_url) 
+        // Insert into WINE table
+            $sql_wine = "INSERT INTO wine (name, winery, region, colour, body, sweetness, price, description, image_url) 
                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $params_wine = [
@@ -110,9 +110,9 @@ if (is_post_request()) {
         executePS($pdo, $sql_wine, $params_wine);
         $new_wine_id = $pdo->lastInsertId();
 
-        // Insert into TASTING_NOTES table
+        // Insert into TASTING-NOTES table
             if (!empty($selected_notes)) {
-                $sql_note = "INSERT INTO tasting_notes (wine_fk, flavour_note) VALUES (?, ?)";
+                $sql_note = "INSERT INTO tasting-notes (wine_fk, flavour_note) VALUES (?, ?)";
                 $stmt_note = $pdo->prepare($sql_note);
 
                 foreach ($selected_notes as $note_value) {

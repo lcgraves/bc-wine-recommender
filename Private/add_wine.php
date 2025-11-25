@@ -106,6 +106,9 @@ if (is_post_request()) {
         $params_wine = [
                 $name, $winery, $region, $colour, $body, $sweetness, $price, $description, $image_url_db
             ];
+
+        executePS($pdo, $sql_wine, $params_wine);
+        $new_wine_id = $pdo->lastInsertId();
 ?>
 
 <main class="container dashboard-layout">

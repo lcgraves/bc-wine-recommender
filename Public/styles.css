@@ -764,3 +764,10 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
         width: 100%;
     }
 }
+
+/** Manage Wines .page-header-title **/
+
+.button-danger {
+    background-color: #DC2626; /* Red color for danger actions */
+    color: var(--wine-light);
+}

@@ -19,3 +19,6 @@ if (ini_get("session.use_cookies")) {
         $params["secure"], $params["httponly"]
     );
 }
+
+// 3. Destroy the session data file on the server
+session_destroy();

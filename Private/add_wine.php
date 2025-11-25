@@ -138,8 +138,6 @@ if (is_post_request()) {
 }
 ?>
 
-            ?>
-
 <main class="container dashboard-layout">
 
     <!-- Sidebar Navigation -->
@@ -151,14 +149,7 @@ if (is_post_request()) {
             <a href="manage_wines.php">Manage Wine</a>
             <a href="add_wine.php" class="active">Add New Wine</a>
 
-            <?php
-            /* // PHP Logic to show Manage Users only for 'admin' role
-            if ($_SESSION['user_role'] === 'admin') {
-                echo '<a href="manage_users.php">Manage Admin Users</a>';
-            }
-            */
-            ?>
-
+            
             <hr class="sidebar-separator">
 
             <a href="logout.php">Log Out</a>
@@ -169,6 +160,12 @@ if (is_post_request()) {
     <section class="main-content">
         <h1 class="recommender-title page-header-title">Add New Wine Profile</h1>
         <p class="form-subtitle">Fill out the details below to add a new BC wine to the recommender database.</p>
+
+        <?php if ($message): ?>
+            <p class="form-message" style="color: darkred; font-weight: bold; margin-bottom: 1rem; padding: 10px; border: 1px solid darkred; background-color: #ffeaea;">
+                <?= html_escape($message) ?>
+            </p>
+        <?php endif; ?>
 
         <!-- The form action will point to itself -->
         <form action="add_wine.php" method="POST enctype="multipart/form-data">

@@ -124,8 +124,18 @@ if (is_post_request()) {
             $pdo->commit();
 
             // Save success message and redirect to dashboard
-            $_SESSION['success_message'] = "✅ Wine **" . html_escape($name) . "** successfully added!";
+            $_SESSION['success_message'] = "✅ Your wine **" . html_escape($name) . "** was successfully added!";
             redirect('dashboard.php');
+
+        // Add catch block for error handling
+            } catch (PDOException $e) {
+            // Reverse any database changes on error
+            $pdo->rollBack();
+            error_log("Wine insertion error: " . $e->getMessage());
+            $message = "❌ A database error occurred. Wine could not be added. (Details logged)";
+        }
+    }
+}
 ?>
 
             ?>

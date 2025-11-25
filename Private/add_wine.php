@@ -168,7 +168,7 @@ if (is_post_request()) {
         <?php endif; ?>
 
         <!-- The form action will point to itself -->
-        <form action="add_wine.php" method="POST enctype="multipart/form-data">
+        <form action="add_wine.php" method="POST" enctype="multipart/form-data">
 
             <!-- Section 1: Core Wine Details (Maps to 'wines' table) -->
             <h2 class="form-section-header">Product Information</h2>
@@ -189,7 +189,7 @@ if (is_post_request()) {
             </div>
 
             <div class="form-group">
-                <label for="image_url" class="form-label">Image</label>
+                <label for="image_file" class="form-label">Wine Image</label>
                 <input type="file" id="image_file" name="image_file" class="form-input" accept="image/*">
                 <p class="help-text">Allowed formats: JPG, PNG, GIF, WebP. Maximum size: 5MB</p>
             </div>

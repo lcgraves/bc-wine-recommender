@@ -102,6 +102,10 @@ if (is_post_request()) {
         // Insert into WINES table
             $sql_wine = "INSERT INTO wines (name, winery, region, colour, body, sweetness, price, description, image_url) 
                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $params_wine = [
+                $name, $winery, $region, $colour, $body, $sweetness, $price, $description, $image_url_db
+            ];
 ?>
 
 <main class="container dashboard-layout">

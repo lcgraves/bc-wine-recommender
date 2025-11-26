@@ -121,6 +121,14 @@ if (is_post_request()) {
 
             executePS($pdo, $sql_wine_update, $params_wine_update);
 
+            // B. Update the tasting-notes table
+            
+            // 1. Delete all existing notes
+            $sql_delete_notes = "DELETE FROM `tasting-notes` WHERE wine_fk = ?";
+            executePS($pdo, $sql_delete_notes, [$wine_id]);
+            
+            
+
 }
     }
 

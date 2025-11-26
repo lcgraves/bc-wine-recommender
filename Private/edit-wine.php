@@ -16,6 +16,7 @@ $page_title = "Edit Wine";
 require 'includes/header_private.php';
 require 'includes/side_nav.php';
 $message = ''; // For success or error messages
+$errors = []; // For validation errors
 $wine_id = $_GET['id'] ?? null; // Get wine ID from URL for intial load
 
 // If no ID is provided in the URL, redirect back to the manage page

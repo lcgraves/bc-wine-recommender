@@ -31,4 +31,8 @@ try {
     $sql_notes = "DELETE FROM `tasting-notes` WHERE wine_fk = ?";
     executePS($pdo, $sql_notes, [$wine_id]);
 
+    // 3. Delete the main wine record
+    $sql_wine = "DELETE FROM wine WHERE wine_id = ?";
+    executePS($pdo, $sql_wine, [$wine_id]);
+
 }

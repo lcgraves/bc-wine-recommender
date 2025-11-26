@@ -27,5 +27,8 @@ try {
     $stmt = executePS($pdo, $sql_fetch_image, [$wine_id]);
     $image_url_to_delete = $stmt->fetchColumn();
 
+    // 2. Delete tasting notes first (due to foreign key constraints)
+    $sql_notes = "DELETE FROM `tasting-notes` WHERE wine_fk = ?";
+    executePS($pdo, $sql_notes, [$wine_id]);
 
 }

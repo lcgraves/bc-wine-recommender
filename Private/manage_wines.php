@@ -36,6 +36,12 @@ $wines = $stmt_wines->fetchAll(PDO::FETCH_ASSOC);
 <section class="container">
         <h1>Manage Wines 🍷</h1>
         
+        <?php if ($success_message): ?>
+        <div style="color: green; font-weight: 600;" class="alert alert-success">
+            <?= html_escape($success_message) ?>
+        </div>
+        <?php endif; ?>
+
         <p>
             <a href="add_wine.php" class="button button-primary">Add New Wine</a>
         </p>

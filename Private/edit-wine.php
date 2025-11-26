@@ -185,10 +185,15 @@ if (empty($wine) || !is_post_request() || !empty($errors)) {
 
     // If no wine found, redirect back to manage page
     if (!$fetched_wine) {
-            redirect('manage-wines.php');
+            redirect('manage_wines.php');
         }
         $wine = $fetched_wine; // Use DB data for rendering
     }
+
+    // 2. Fetch current tasting notes from DB
+    $sql_fetch_notes = "SELECT flavour_note FROM `tasting-notes` WHERE wine_fk = :id";
+    $stmt_fetch_notes = executePS($pdo, $sql_fetch_notes, [':id' => $wine_id]);
+    $tasting_notes_db = $stmt_fetch_notes->fetchAll(PDO::FETCH_COLUMN, 0);
 ?>
 
 <section>

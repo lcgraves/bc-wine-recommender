@@ -211,6 +211,19 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 <section>
 
+<h1>Editing: <?= html_escape($wine['name'] ?? 'Wine') ?> (ID: <?= $wine_id ?>)</h1>
+    
+    <?php if (!empty($errors)): ?>
+        <div class="alert alert-danger">
+            <strong>Please correct the following errors:</strong>
+            <ul style="margin-top: 10px;">
+                <?php foreach ($errors as $error): ?>
+                    <li><?= html_escape($error) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
 
 </section>
 <?php require 'includes/footer.php' ?>

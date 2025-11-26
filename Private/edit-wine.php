@@ -14,3 +14,4 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 $page_title = "Edit Wine";
 $message = ''; // For success or error messages
+$wine_id = $_GET['id'] ?? null; // Get wine ID from URL

@@ -44,4 +44,8 @@ try {
             unlink($file_path);
         }
     }
+
+    // Redirect back to the wine management page with a success message
+    $_SESSION['success_message'] = "Wine ID **$wine_id** was successfully deleted.";
+    redirect('manage-wines.php');
 }

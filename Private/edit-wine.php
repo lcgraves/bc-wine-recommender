@@ -67,7 +67,7 @@ if (is_post_request()) {
     $wine['sweetness'] = $_POST['sweetness'] ?? '';
     $wine['description'] = trim($_POST['description'] ?? '');
 
-    // Get and validate price
+    // Get and validate price & assign
     $submitted_price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
     $wine['price'] = $submitted_price !== false ? $submitted_price : null; // set to null if invalid
 
@@ -75,7 +75,7 @@ if (is_post_request()) {
     $selected_notes = $_POST['notes'] ?? [];
 
     // Get current image path from hidden field
-    $current_image_url = $_POST['original_image_url'] ?? null;
+    $wine['image_url'] = $_POST['original_image_url'] ?? null;
 
     // 2. VALIDATION
 

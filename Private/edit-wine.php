@@ -306,7 +306,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             <label class="form-label">Current Image</label>
             <?php if (!empty($wine['image_url'])): ?>
                 <img src="../Public/<?= html_escape($wine['image_url']) ?>" alt="Current Wine Label" 
-                     style="max-width: 150px; display: block; margin-bottom: 1rem; border: 1px solid #ccc;">
+                     style="max-width: 150px; max-height: 300px; object-fit: contain; display: block; margin-bottom: 1rem; border: 1px solid #ccc;">
             <?php else: ?>
                 <p>No image uploaded.</p>
             <?php endif; ?>

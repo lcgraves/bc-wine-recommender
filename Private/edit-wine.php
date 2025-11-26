@@ -128,6 +128,15 @@ if (is_post_request()) {
             // 2. Define the final target path (Uses UPLOAD_PATH constant)
             $target_file = UPLOAD_PATH . $new_file_name;
 
+        // 3. Attempt to move the file
+            if (move_uploaded_file($file_tmp_name, $target_file)) {
+                
+                // Success! Create the relative URL path required by the DB (Uses UPLOADS_WEB_PATH constant)
+                $new_image_url_db = UPLOAD_PATH . $new_file_name;
+                
+                // Update the $wine array with the NEW URL
+                $wine['image_url'] = $new_image_url_db;
+
     // 3. UPDATE DATABASE IF NO ERRORS
     if (empty($errors)) {
         try {

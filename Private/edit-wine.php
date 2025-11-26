@@ -201,6 +201,11 @@ if (empty($wine) || !is_post_request() || !empty($errors)) {
     } 
     // If it's a failed POST, $selected_notes retains the user's submitted values
 }
+
+// Check for success flag from the successful POST redirect
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $message = "Wine ID $wine_id updated successfully!";
+}
 ?>
 
 

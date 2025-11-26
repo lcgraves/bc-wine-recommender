@@ -11,10 +11,12 @@ require 'includes/nav.php';
         <div class="login-card">
             <h1 class="recommender-title" style="font-size: 2rem; margin-bottom: 2rem;">Register New Admin</h1>
 
+            <form action="register.php" method="POST">
+
 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" id="username" name="username" class="form-input" 
-                           value="<?= html_escape($username) ?>" required>
+                         required>
                 </div>
 
                 <div class="form-group">

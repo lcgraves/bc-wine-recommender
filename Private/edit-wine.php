@@ -43,13 +43,13 @@ $all_notes_list = [
 if (is_post_request()) {
     
     // 1. Get inputs
-    $name = $_POST['name'] ?? '';
-    $winery = $_POST['winery'] ?? '';
+    $name = trim($_POST['name'] ?? '');
+    $winery = trim($_POST['winery'] ?? '');
     $region = $_POST['region'] ?? '';
     $colour = $_POST['colour'] ?? '';
     $body = $_POST['body'] ?? '';
     $sweetness = $_POST['sweetness'] ?? '';
-    $description = $_POST['description'] ?? '';
+    $description = trim($_POST['description'] ?? '');
 
     // Get and validate price
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);

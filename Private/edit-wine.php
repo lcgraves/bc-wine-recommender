@@ -138,12 +138,16 @@ if (is_post_request()) {
             }
 
             $pdo->commit();
+            } catch (PDOException $e) {
+            $pdo->rollBack();
+            error_log("Wine Update Failed: " . $e->getMessage());
+            $errors[] = "Error: Database update failed. Check logs.";
+        }
 
 }
     }
 
 
-}
 ?>
 
 <section>

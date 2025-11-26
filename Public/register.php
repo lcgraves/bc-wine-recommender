@@ -36,6 +36,10 @@ if (empty($password_plain)) {
         $errors[] = "Password must be at least 8 characters long.";
     }
 
+if ($password_plain !== $password_confirm) {
+        $errors[] = "Password and confirmation do not match.";
+    }
+
 ?>
 
 <main class="container login-wrapper">

@@ -28,6 +28,14 @@ $wine = [];
 $tasting_notes_db = []; // notes currently in database for this wine
 $selected_notes = []; // Notes selected by user in the form
 
+// Constants (for the form structure)
+$all_notes_list = [
+    'wild cherry', 'black fruit', 'raspberry', 'cranberry', 'strawberry', 'plum',
+    'mushroom', 'earthy', 'cedar', 'smoky', 'black olive',
+    'lime', 'petrol', 'slate_mineral', 'grapefruit', 'citrus_zest', 'saline_maritime',
+    'bell_pepper', 'floral', 'elderflower'
+];
+
 
 ?>
 

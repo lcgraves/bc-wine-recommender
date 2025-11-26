@@ -103,7 +103,16 @@ if (is_post_request()) {
     } elseif ($wine['price'] === false || $wine['price'] < 0) {
         $errors[] = 'Price must be a valid positive number.';
     }
-    // 5. Image Upload Validation (Only if a new file was provided)
+    // 5. Image file upload and deletion logic (adapted from add_wine.php)
+
+    // Check if a NEW file was submitted and PHP detected no initial error
+    if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
+        
+        $file_tmp_name = $_FILES['image_file']['tmp_name'];
+        $file_name = $_FILES['image_file']['name'];
+        $file_size = $_FILES['image_file']['size'];
+        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+
     if (!empty($_FILES['image_file']['name'])) {
         $file = $_FILES['image_file'];
 

@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once 'includes/Database.php'; 
+require_once 'includes/Database.php';
 $pdo = createDBConnection();
 
 // Check for authenticated user (Redirect if not logged in)
@@ -31,17 +31,33 @@ $selected_notes = []; // Notes selected by user in the form
 
 // Constants (for the form structure)
 $all_notes_list = [
-    'wild cherry', 'black fruit', 'raspberry', 'cranberry', 'strawberry', 'plum',
-    'mushroom', 'earthy', 'cedar', 'smoky', 'black olive',
-    'lime', 'petrol', 'slate_mineral', 'grapefruit', 'citrus_zest', 'saline_maritime',
-    'bell_pepper', 'floral', 'elderflower'
+    'wild cherry',
+    'black fruit',
+    'raspberry',
+    'cranberry',
+    'strawberry',
+    'plum',
+    'mushroom',
+    'earthy',
+    'cedar',
+    'smoky',
+    'black olive',
+    'lime',
+    'petrol',
+    'slate_mineral',
+    'grapefruit',
+    'citrus_zest',
+    'saline_maritime',
+    'bell_pepper',
+    'floral',
+    'elderflower'
 ];
 
 // ====================================================================
 // SECTION 1: HANDLE POST REQUEST (UPDATE DATA)
 // ====================================================================
 if (is_post_request()) {
-    
+
     // 1. Get inputs
     $name = trim($_POST['name'] ?? '');
     $winery = trim($_POST['winery'] ?? '');
@@ -62,38 +78,38 @@ if (is_post_request()) {
 
     // 2. VALIDATION
 
-    if (!validate_required($wine['name'])) { 
-    $errors[] = 'Wine Name is required.';
+    if (!validate_required($wine['name'])) {
+        $errors[] = 'Wine Name is required.';
     }
-    if (!validate_required($wine['winery'])) { 
-    $errors[] = 'Winery is required.';
+    if (!validate_required($wine['winery'])) {
+        $errors[] = 'Winery is required.';
     }
-    if (!validate_required($wine['region'])) { 
-    $errors[] = 'Region selection is required.';
+    if (!validate_required($wine['region'])) {
+        $errors[] = 'Region selection is required.';
     }
-    if (!validate_required($wine['colour'])) { 
+    if (!validate_required($wine['colour'])) {
         $errors[] = 'Colour selection is required.';
     }
-    if (!validate_required($wine['body'])) { 
+    if (!validate_required($wine['body'])) {
         $errors[] = 'Body selection is required.';
     }
-    if (!validate_required($wine['sweetness'])) { 
+    if (!validate_required($wine['sweetness'])) {
         $errors[] = 'Sweetness selection is required.';
     }
-    if (!validate_required((string)$wine['price'])) { // Convert price back to string for the required check
-    $errors[] = 'Price is required.';
-} elseif ($wine['price'] === false || $wine['price'] < 0) {
-    $errors[] = 'Price must be a valid positive number.';
-}
-// 5. Image Upload Validation (Only if a new file was provided)
+    if (!validate_required((string) $wine['price'])) { // Convert price back to string for the required check
+        $errors[] = 'Price is required.';
+    } elseif ($wine['price'] === false || $wine['price'] < 0) {
+        $errors[] = 'Price must be a valid positive number.';
+    }
+    // 5. Image Upload Validation (Only if a new file was provided)
     if (!empty($_FILES['image_file']['name'])) {
         $file = $_FILES['image_file'];
-        
+
         // Check for common PHP upload errors
         if ($file['error'] !== UPLOAD_ERR_OK) {
             $errors[] = 'Image upload failed. Error code: ' . $file['error'];
         }
-        
+
         // Check file type and size against defined constants
         elseif (!in_array($file['type'], $allowed_image_types)) {
             $errors[] = 'Invalid image type. Allowed: JPG, PNG, GIF, WebP.';
@@ -115,43 +131,53 @@ if (is_post_request()) {
                 WHERE wine_id = ?
             ";
             $params_wine_update = [
-                $wine['name'], $wine['winery'], $wine['region'], $wine['colour'], $wine['body'], 
-                $wine['sweetness'], $wine['price'], $wine['description'], $wine['image_url'], $wine_id
+                $wine['name'],
+                $wine['winery'],
+                $wine['region'],
+                $wine['colour'],
+                $wine['body'],
+                $wine['sweetness'],
+                $wine['price'],
+                $wine['description'],
+                $wine['image_url'],
+                $wine_id
             ];
 
             executePS($pdo, $sql_wine_update, $params_wine_update);
 
             // B. Update the tasting-notes table
-            
+
             // 1. Delete all existing notes
             $sql_delete_notes = "DELETE FROM `tasting-notes` WHERE wine_fk = ?";
             executePS($pdo, $sql_delete_notes, [$wine_id]);
-            
+
             // 2. Insert the newly selected notes
             if (!empty($selected_notes)) {
                 $sql_insert_note = "INSERT INTO `tasting-notes` (wine_fk, flavour_note) VALUES (?, ?)";
                 $stmt_insert = $pdo->prepare($sql_insert_note);
-                
+
                 foreach ($selected_notes as $note) {
                     $stmt_insert->execute([$wine_id, $note]);
                 }
             }
 
             $pdo->commit();
-            } catch (PDOException $e) {
+        } catch (PDOException $e) {
             $pdo->rollBack();
             error_log("Wine Update Failed: " . $e->getMessage());
             $errors[] = "Error: Database update failed. Check logs.";
         }
 
-}
     }
+}
+
+
 
 
 ?>
 
 <section>
 
-        
+
 </section>
 <?php require 'includes/footer.php' ?>

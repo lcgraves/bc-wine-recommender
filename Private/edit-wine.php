@@ -194,7 +194,15 @@ if (empty($wine) || !is_post_request() || !empty($errors)) {
     $sql_fetch_notes = "SELECT flavour_note FROM `tasting-notes` WHERE wine_fk = :id";
     $stmt_fetch_notes = executePS($pdo, $sql_fetch_notes, [':id' => $wine_id]);
     $tasting_notes_db = $stmt_fetch_notes->fetchAll(PDO::FETCH_COLUMN, 0);
+
+    // If it's a first load (GET), use DB notes to check checkboxes
+    if (!is_post_request()) {
+        $selected_notes = $tasting_notes_db;
+    } 
+    // If it's a failed POST, $selected_notes retains the user's submitted values
+}
 ?>
+
 
 <section>
 

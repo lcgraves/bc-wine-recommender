@@ -23,6 +23,13 @@ if (is_post_request()) {
     $password_plain = $_POST['password'] ?? '';
     $password_confirm = $_POST['password_confirm'] ?? '';
 
+// 2. Validation Checks
+    if (empty($username)) {
+        $errors[] = "Username is required.";
+    } elseif (strlen($username) < 4 || strlen($username) > 20) {
+        $errors[] = "Username must be between 4 and 20 characters.";
+    }
+
 ?>
 
 <main class="container login-wrapper">

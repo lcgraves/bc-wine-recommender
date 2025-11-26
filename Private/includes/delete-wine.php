@@ -4,6 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once '../Public/includes/Database.php';
+
 // Redirect user if not logged in successfully
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     redirect('../Public/login.php');

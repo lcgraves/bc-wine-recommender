@@ -137,6 +137,22 @@ if (is_post_request()) {
                 // Update the $wine array with the NEW URL
                 $wine['image_url'] = $new_image_url_db;
 
+        // Delete the old image file if one exists
+                if ($original_image_url) {
+        
+                    $old_file_path = UPLOAD_PATH . $original_image_url; 
+                    
+
+                    if (file_exists($old_file_path)) {
+                        unlink($old_file_path);
+                    }
+                }
+            } else {
+                $errors[] = "Error: Failed to move uploaded file. Check directory permissions.";
+            }
+        }
+    }
+
     // 3. UPDATE DATABASE IF NO ERRORS
     if (empty($errors)) {
         try {

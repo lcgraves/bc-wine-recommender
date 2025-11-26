@@ -127,7 +127,15 @@ if (is_post_request()) {
             $sql_delete_notes = "DELETE FROM `tasting-notes` WHERE wine_fk = ?";
             executePS($pdo, $sql_delete_notes, [$wine_id]);
             
-            
+            // 2. Insert the newly selected notes
+            if (!empty($selected_notes)) {
+                $sql_insert_note = "INSERT INTO `tasting-notes` (wine_fk, flavour_note) VALUES (?, ?)";
+                $stmt_insert = $pdo->prepare($sql_insert_note);
+                
+                foreach ($selected_notes as $note) {
+                    $stmt_insert->execute([$wine_id, $note]);
+                }
+            }
 
 }
     }

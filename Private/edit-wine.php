@@ -281,7 +281,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                    value="<?= html_escape($wine['winery'] ?? '') ?>">
         </div>
 
-        // PHP logic selects the current region
+        <!--PHP logic selects the current region-->
         <div class="form-group">
             <label for="region" class="form-label">Region</label>
             <select id="region" name="region" class="form-select" required>
@@ -412,4 +412,5 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 </section>
 </main>
-<?php require 'includes/footer.php' ?>
+<!-- Footer -->
+<?php require '../Public/includes/footer.php'; ?>

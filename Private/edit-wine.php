@@ -3,14 +3,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once 'includes/Database.php';
+require_once '../Public/includes/Database.php';
 $pdo = createDBConnection();
 
 // Check for authenticated user (Redirect if not logged in)
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     redirect('../Public/login.php');
 }
-
 
 $page_title = "Edit Wine";
 require 'includes/header_private.php';
@@ -21,7 +20,7 @@ $wine_id = $_GET['id'] ?? null; // Get wine ID from URL for intial load
 
 // If no ID is provided in the URL, redirect back to the manage page
 if (!$wine_id) {
-    redirect('manage-wines.php');
+    redirect('manage_wines.php');
 }
 
 // Initialize variables (will be filled below)
@@ -58,14 +57,15 @@ $all_notes_list = [
 // ====================================================================
 if (is_post_request()) {
 
-    // 1. Get inputs
-    $name = trim($_POST['name'] ?? '');
-    $winery = trim($_POST['winery'] ?? '');
-    $region = $_POST['region'] ?? '';
-    $colour = $_POST['colour'] ?? '';
-    $body = $_POST['body'] ?? '';
-    $sweetness = $_POST['sweetness'] ?? '';
-    $description = trim($_POST['description'] ?? '');
+    // 1. Get inputs & assign to $wine array
+    $wine['wine_id'] = $wine_id;
+    $wine['name'] = trim($_POST['name'] ?? '');
+    $wine['winery'] = trim($_POST['winery'] ?? '');
+    $wine['region'] = $_POST['region'] ?? '';
+    $wine['colour'] = $_POST['colour'] ?? '';
+    $wine['body'] = $_POST['body'] ?? '';
+    $wine['sweetness'] = $_POST['sweetness'] ?? '';
+    $wine['description'] = trim($_POST['description'] ?? '');
 
     // Get and validate price
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);

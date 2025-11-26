@@ -340,5 +340,12 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="price" class="form-label">Price (CAD)</label>
+                <input type="number" id="price" name="price" class="form-input" min="0" step="0.01" required 
+                       value="<?= html_escape(number_format($wine['price'] ?? 0, 2, '.', '')) ?>">
+            </div>
+        </div>
+
 </section>
 <?php require 'includes/footer.php' ?>

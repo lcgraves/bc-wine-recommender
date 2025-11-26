@@ -306,5 +306,22 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="body" class="form-label">Body</label>
+                <select id="body" name="body" class="form-select" required>
+                    <option value="">Select Body...</option>
+                    <?php 
+                    $bodies = ["Light", "Medium", "Full"];
+                    $current_body = $wine['body'] ?? '';
+                    foreach ($bodies as $body): 
+                    ?>
+                        <option value="<?= html_escape($body) ?>" 
+                            <?= $current_body === $body ? 'selected' : '' ?>>
+                            <?= html_escape($body) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
 </section>
 <?php require 'includes/footer.php' ?>

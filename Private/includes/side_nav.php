@@ -5,13 +5,12 @@
             <h2 class="sidebar-title">Dashboard</h2>
             <nav class="sidebar-menu">
                 <!-- Dashboard Home -->
-                <a href="admin.php" class="active">Overview</a> 
-                
+                <a href="dashboard.php" class="<?= urlIs('/bc-wine-recommender/Private/dashboard.php') ? 'active' : ''; ?>">Overview</a> 
                 <!-- Wine Management -->
-                <a href="manage_wines.php">Manage Wines</a>
+                <a href="manage_wines.php" class="<?= urlIs('/bc-wine-recommender/Private/manage-wines.php') ? 'active' : ''; ?>">Manage Wines</a>
                 
                 <!-- Add Wine directly via sidebar -->
-                <a href="add_wine.php">Add New Wine</a>
+                <a href="add_wine.php" class="<?= urlIs('/bc-wine-recommender/Private/add-wines.php') ? 'active' : ''; ?>">Add New Wine</a>
                 
                 <!-- User Management (Only shown if user_role is 'admin' via PHP) -->
                 <?php 

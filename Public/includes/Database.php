@@ -90,6 +90,14 @@ function urlIs($value) {
     return $_SERVER['REQUEST_URI'] == $value;
 }
 
+/**
+ * Validate required field
+ */
+function validate_required(string $value): bool
+{
+    return trim($value) !== '';
+}
+
 //Define category of flavour notes to notes map
 $category_to_notes_map = [
     'berry_fruit' => ['wild cherry', 'black fruit', 'raspberry', 'cranberry', 'strawberry', 'plum'],

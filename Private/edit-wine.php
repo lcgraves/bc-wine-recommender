@@ -60,6 +60,20 @@ if (is_post_request()) {
     // Get current image path from hidden field
     $current_image_url = $_POST['current_image_url'] ?? null;
 
+    // 2. VALIDATION
+
+    if (!validate_required($wine['name'])) { 
+    $errors[] = 'Wine Name is required.';
+    }
+    if (!validate_required($wine['winery'])) { 
+    $errors[] = 'Winery is required.';
+    }
+    if (!validate_required($wine['region'])) { 
+    $errors[] = 'Region selection is required.';
+    }
+    
+}
+
 
 ?>
 

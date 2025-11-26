@@ -9,6 +9,11 @@ require_once 'includes/Database.php';
 require 'includes/header.php';
 require 'includes/nav.php';
 
+// Connect to database & initialize variables
+$pdo = createDBConnection();
+$errors = [];
+$success_message = '';
+$username = ''; // Used to persist the username on validation error
 
 ?>
 

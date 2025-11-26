@@ -171,8 +171,17 @@ if (is_post_request()) {
     }
 }
 
+// ====================================================================
+// SECTION 2: LOAD DATA FOR DISPLAY (HANDLES INITIAL LOAD OR POST FAILURE)
+// ====================================================================
 
-
+// If it was a POST request that failed, the $wine array already contains the submitted data.
+if (empty($wine) || !is_post_request() || !empty($errors)) {
+    // 1. Fetch main wine details from DB (only if it wasn't a failed POST)
+    if (!is_post_request() || !empty($errors)) {
+        $sql_fetch_wine = "SELECT * FROM wine WHERE wine_id = :id";
+        $stmt_fetch_wine = executePS($pdo, $sql_fetch_wine, [':id' => $wine_id]);
+        $fetched_wine = $stmt_fetch_wine->fetch(PDO::FETCH_ASSOC);
 
 ?>
 

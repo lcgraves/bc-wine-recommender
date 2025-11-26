@@ -240,5 +240,29 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                    value="<?= html_escape($wine['name'] ?? '') ?>">
         </div>
 
+        <div class="form-group">
+            <label for="winery" class="form-label">Winery / Producer</label>
+            <input type="text" id="winery" name="winery" class="form-input" required 
+                   value="<?= html_escape($wine['winery'] ?? '') ?>">
+        </div>
+
+        // PHP logic selects the current region
+        <div class="form-group">
+            <label for="region" class="form-label">Region</label>
+            <select id="region" name="region" class="form-select" required>
+                <option value="">Select Region...</option>
+                <?php 
+                $regions = ["Okanagan Valley", "Similkameen Valley", "Vancouver Island", "Fraser Valley", "Thompson Valley"];
+                $current_region = $wine['region'] ?? '';
+                foreach ($regions as $region): 
+                ?>
+                    <option value="<?= html_escape($region) ?>" 
+                        <?= $current_region === $region ? 'selected' : '' ?>>
+                        <?= html_escape($region) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
 </section>
 <?php require 'includes/footer.php' ?>

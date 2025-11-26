@@ -15,3 +15,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 $page_title = "Edit Wine";
 $message = ''; // For success or error messages
 $wine_id = $_GET['id'] ?? null; // Get wine ID from URL
+
+// If no ID is provided in the URL, redirect back to the manage page
+if (!$wine_id) {
+    redirect('manage-wines.php');
+}

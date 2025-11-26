@@ -323,5 +323,22 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="sweetness" class="form-label">Sweetness</label>
+                <select id="sweetness" name="sweetness" class="form-select" required>
+                    <option value="">Select Sweetness...</option>
+                    <?php 
+                    $sweetnesses = ["Dry", "Off-Dry", "Sweet"];
+                    $current_sweetness = $wine['sweetness'] ?? '';
+                    foreach ($sweetnesses as $sweetness): 
+                    ?>
+                        <option value="<?= html_escape($sweetness) ?>" 
+                            <?= $current_sweetness === $sweetness ? 'selected' : '' ?>>
+                            <?= html_escape($sweetness) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
 </section>
 <?php require 'includes/footer.php' ?>

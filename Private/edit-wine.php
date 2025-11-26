@@ -11,7 +11,10 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     redirect('../Public/login.php');
 }
 
+
 $page_title = "Edit Wine";
+require 'includes/header_private.php';
+require 'includes/side_nav.php';
 $message = ''; // For success or error messages
 $wine_id = $_GET['id'] ?? null; // Get wine ID from URL
 
@@ -19,3 +22,4 @@ $wine_id = $_GET['id'] ?? null; // Get wine ID from URL
 if (!$wine_id) {
     redirect('manage-wines.php');
 }
+

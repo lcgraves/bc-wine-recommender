@@ -36,6 +36,22 @@ $all_notes_list = [
     'bell_pepper', 'floral', 'elderflower'
 ];
 
+// ====================================================================
+// SECTION 1: HANDLE POST REQUEST (UPDATE DATA)
+// ====================================================================
+if (is_post_request()) {
+    
+    // 1. Get inputs
+    $name = $_POST['name'] ?? '';
+    $winery = $_POST['winery'] ?? '';
+    $region = $_POST['region'] ?? '';
+    $colour = $_POST['colour'] ?? '';
+    $body = $_POST['body'] ?? '';
+    $sweetness = $_POST['sweetness'] ?? '';
+    $description = $_POST['description'] ?? '';
+
+    
+
 
 ?>
 

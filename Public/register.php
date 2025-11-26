@@ -1,9 +1,14 @@
 <?php
 
+// Start session for potential error/success messages
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+
 $page_title = "Login";
 require_once 'includes/Database.php';
 require 'includes/header.php';
 require 'includes/nav.php';
+
 
 ?>
 

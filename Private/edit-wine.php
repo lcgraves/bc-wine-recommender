@@ -107,8 +107,24 @@ if (is_post_request()) {
         try {
             $pdo->beginTransaction();
 
+            // A. Update the main wine table
+            $sql_wine_update = "
+                UPDATE wine SET 
+                    name = ?, winery = ?, region = ?, colour = ?, body = ?, 
+                    sweetness = ?, price = ?, description = ?, image_url = ?
+                WHERE wine_id = ?
+            ";
+            $params_wine_update = [
+                $wine['name'], $wine['winery'], $wine['region'], $wine['colour'], $wine['body'], 
+                $wine['sweetness'], $wine['price'], $wine['description'], $wine['image_url'], $wine_id
+            ];
+
+            executePS($pdo, $sql_wine_update, $params_wine_update);
+
 }
     }
+
+
 }
 ?>
 

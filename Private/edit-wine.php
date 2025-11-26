@@ -264,5 +264,21 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             </select>
         </div>
 
+        <div class="form-group">
+            <label class="form-label">Current Image</label>
+            <?php if (!empty($wine['image_url'])): ?>
+                <img src="../Public/<?= html_escape($wine['image_url']) ?>" alt="Current Wine Label" 
+                     style="max-width: 150px; display: block; margin-bottom: 1rem; border: 1px solid #ccc;">
+            <?php else: ?>
+                <p>No image uploaded.</p>
+            <?php endif; ?>
+            
+            <label for="image_file" class="form-label">Change Image (Optional)</label>
+            <input type="file" name="image_file" id="image_file" class="form-input" accept="image/*">
+            <p class="help-text">Leave blank to keep the current image. Max 5MB.</p>
+        </div>
+
+        
+
 </section>
 <?php require 'includes/footer.php' ?>

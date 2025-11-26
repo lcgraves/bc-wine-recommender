@@ -365,6 +365,16 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                 </div>
             <?php endforeach; ?>
         </div>
+        <div class="form-actions">
+            <button type="submit" class="button button-primary button-large">
+                Save Wine Profile Changes
+            </button>
+            <a href="manage-wines.php" class="button button-secondary">
+                Cancel / Back to Manage Wines
+            </a>
+        </div>
+    </form>
 
 </section>
+</main>
 <?php require 'includes/footer.php' ?>

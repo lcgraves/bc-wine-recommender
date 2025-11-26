@@ -224,6 +224,9 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         </div>
     <?php endif; ?>
 
+    <?php if ($message): ?>
+        <p class="feedback-message alert alert-success"><?= html_escape($message) ?></p>
+    <?php endif; ?>
 
 </section>
 <?php require 'includes/footer.php' ?>

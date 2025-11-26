@@ -74,7 +74,7 @@ if (is_post_request()) {
     $selected_notes = $_POST['notes'] ?? [];
 
     // Get current image path from hidden field
-    $current_image_url = $_POST['current_image_url'] ?? null;
+    $current_image_url = $_POST['original_image_url'] ?? null;
 
     // 2. VALIDATION
 
@@ -227,6 +227,18 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
     <?php if ($message): ?>
         <p class="feedback-message alert alert-success"><?= html_escape($message) ?></p>
     <?php endif; ?>
+
+    <form action="edit-wine.php?id=<?= $wine_id ?>" method="POST" enctype="multipart/form-data">
+        
+        <input type="hidden" name="original_image_url" value="<?= html_escape($wine['image_url'] ?? '') ?>">
+
+        <h2 class="form-section-header">Product Information</h2>
+
+        <div class="form-group">
+            <label for="name" class="form-label">Wine Name</label>
+            <input type="text" id="name" name="name" class="form-input" required 
+                   value="<?= html_escape($wine['name'] ?? '') ?>">
+        </div>
 
 </section>
 <?php require 'includes/footer.php' ?>

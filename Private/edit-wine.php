@@ -11,3 +11,6 @@ $pdo = createDBConnection();
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     redirect('../Public/login.php');
 }
+
+$page_title = "Edit Wine";
+$message = ''; // For success or error messages

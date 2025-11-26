@@ -58,8 +58,8 @@ if (is_post_request()) {
 
 ?>
 
-    <main class="container login-wrapper">
-        <div class="login-card">
+    <main class="container">
+        <div style="margin-top: 4rem;" class="login-card">
             <h1 class="recommender-title" style="font-size: 2rem; margin-bottom: 2rem;">Admin Login</h1>
 
             <?php if ($login_message): ?>

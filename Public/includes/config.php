@@ -19,8 +19,9 @@ define('BASE_URL', 'http://localhost/bc-wine-recommender/Public/');
 define('UPLOAD_PATH', __DIR__ . '/../images/');
 
 /* Image upload settings */
-$max_size = 5 * 1024 * 1024; // 5 MB
-$allowed_image_types = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+ // Define allowed extensions and max size
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'webp', 'avif'];
+        $max_size = 5 * 1024 * 1024; // 5MB
 
 /* Error reporting for production environment */
 

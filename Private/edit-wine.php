@@ -139,8 +139,9 @@ if (is_post_request()) {
 
         // Delete the old image file if one exists
                 if ($original_image_url) {
-        
-                    $old_file_path = UPLOAD_PATH . $original_image_url; 
+
+                    $old_filename= basename($original_image_url);
+                    $old_file_path = UPLOAD_PATH . $old_filename; 
                     
 
                     if (file_exists($old_file_path)) {

@@ -75,7 +75,8 @@ if (is_post_request()) {
     $selected_notes = $_POST['notes'] ?? [];
 
     // Get current image path from hidden field
-    $wine['image_url'] = $_POST['original_image_url'] ?? null;
+    $original_image_url = $_POST['original_image_url'] ?? null;
+    $wine['image_url'] = $original_image_url; // default to original unless new file uploaded
 
     // 2. VALIDATION
 

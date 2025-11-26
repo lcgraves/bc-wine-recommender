@@ -4,6 +4,14 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Check if a success message exists in the session
+$success_message = $_SESSION['success_message'] ?? null;
+
+// Clear the session variable so it doesn't reappear on refresh
+if (isset($_SESSION['success_message'])) {
+    unset($_SESSION['success_message']);
+}
+
 // Redirect user if not logged in successfully
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     require_once '../Public/includes/Database.php'; // Need redirect() function

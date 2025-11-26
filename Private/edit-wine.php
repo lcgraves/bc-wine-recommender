@@ -114,7 +114,7 @@ if (is_post_request()) {
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
    // A. File validation
-        if (!in_array($file_ext, $allowed_image_types)) {
+        if (!in_array($file_ext, $allowed_extensions)) {
             $errors[] = "Error: Invalid file type. Only JPG, PNG, WEBP, and AVIF are allowed.";
         } elseif ($file_size > $max_size) {
             $errors[] = "Error: File size exceeds the 5MB limit.";

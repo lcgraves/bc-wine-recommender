@@ -252,7 +252,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 <h1>Editing: <?= html_escape($wine['name'] ?? 'Wine') ?> (ID: <?= $wine_id ?>)</h1>
     
     <?php if (!empty($errors)): ?>
-        <div class="alert alert-danger">
+        <div style="color: red; font-weight: 600;" class="alert alert-danger">
             <strong>Please correct the following errors:</strong>
             <ul style="margin-top: 10px;">
                 <?php foreach ($errors as $error): ?>
@@ -263,7 +263,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
     <?php endif; ?>
 
     <?php if ($message): ?>
-        <p class="feedback-message alert alert-success"><?= html_escape($message) ?></p>
+        <p style="color: green; font-weight: 600;" class="feedback-message alert alert-success"><?= html_escape($message) ?></p>
     <?php endif; ?>
 
     <form action="edit-wine.php?id=<?= $wine_id ?>" method="POST" enctype="multipart/form-data">

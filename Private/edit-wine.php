@@ -56,6 +56,9 @@ if (is_post_request()) {
     // Get notes selected by user
     $selected_notes = $_POST['notes'] ?? [];
 
+    // Get current image path from hidden field
+    $current_image_url = $_POST['current_image_url'] ?? null;
+
 
 ?>
 

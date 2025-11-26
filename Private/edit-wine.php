@@ -283,5 +283,28 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             <textarea id="description" name="description" class="form-textarea"><?= html_escape($wine['description'] ?? '') ?></textarea>
         </div>
 
+        <hr class="form-separator">
+
+        <h2 class="form-section-header">Recommendation Filters & Pricing</h2>
+
+        <div class="form-grid-auto">
+
+            <div class="form-group">
+                <label for="colour" class="form-label">Colour</label>
+                <select id="colour" name="colour" class="form-select" required>
+                    <option value="">Select Colour...</option>
+                    <?php 
+                    $colours = ["Red", "White", "Rosé", "Sparkling"];
+                    $current_colour = $wine['colour'] ?? '';
+                    foreach ($colours as $colour): 
+                    ?>
+                        <option value="<?= html_escape($colour) ?>" 
+                            <?= $current_colour === $colour ? 'selected' : '' ?>>
+                            <?= html_escape($colour) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
 </section>
 <?php require 'includes/footer.php' ?>

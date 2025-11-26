@@ -113,21 +113,12 @@ if (is_post_request()) {
         $file_size = $_FILES['image_file']['size'];
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
-    if (!empty($_FILES['image_file']['name'])) {
-        $file = $_FILES['image_file'];
-
-        // Check for common PHP upload errors
-        if ($file['error'] !== UPLOAD_ERR_OK) {
-            $errors[] = 'Image upload failed. Error code: ' . $file['error'];
+   // A. File validation
+        if (!in_array($file_ext, $allowed_extensions)) {
+            $errors[] = "Error: Invalid file type. Only JPG, PNG, WEBP, and AVIF are allowed.";
+        } elseif ($file_size > $max_size) {
+            $errors[] = "Error: File size exceeds the 5MB limit.";
         }
-
-        // Check file type and size against defined constants
-        elseif (!in_array($file['type'], $allowed_image_types)) {
-            $errors[] = 'Invalid image type. Allowed: JPG, PNG, GIF, WebP.';
-        } elseif ($file['size'] > $max_size) {
-            $errors[] = 'Image is too large. Maximum size: 5MB.';
-        }
-    }
 
     // 3. UPDATE DATABASE IF NO ERRORS
     if (empty($errors)) {

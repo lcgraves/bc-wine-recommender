@@ -47,7 +47,25 @@ $selected_body = $filters_raw['body'] ?? '';
                     Your Recommended Pours
                 </h2>
 
-                <div class="selected-filters-display">
+                
+                <!-- Result Filters (Price and Region) -->
+                <div class="results-filters">
+                    <select class="filter-select-small" name="price">
+                        <option disabled selected value="">Filter by Price</option>
+                        <option value="low">Under $20</option>
+                        <option value="med">$20 - $40</option>
+                        <option value="high">Over $40</option>
+                    </select>
+                    <select class="filter-select-small" name="region">
+                        <option disabled selected value="">BC Region</option>
+                        <option value="okanagan">Okanagan Valley</option>
+                        <option value="similkameen">Similkameen Valley</option>
+                        <option value="fraser">Fraser Valley</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="selected-filters-display">
                     <?php 
                     $display_filters = [];
 
@@ -74,23 +92,6 @@ $selected_body = $filters_raw['body'] ?? '';
                     }
                     ?>
                 </div>
-                
-                <!-- Result Filters (Price and Region) -->
-                <div class="results-filters">
-                    <select class="filter-select-small" name="price">
-                        <option disabled selected value="">Filter by Price</option>
-                        <option value="low">Under $20</option>
-                        <option value="med">$20 - $40</option>
-                        <option value="high">Over $40</option>
-                    </select>
-                    <select class="filter-select-small" name="region">
-                        <option disabled selected value="">BC Region</option>
-                        <option value="okanagan">Okanagan Valley</option>
-                        <option value="similkameen">Similkameen Valley</option>
-                        <option value="fraser">Fraser Valley</option>
-                    </select>
-                </div>
-            </div>
 
             <!-- Container where wine cards will eventually be loaded -->
             <div id="wine-card-container" class="wine-card-container">

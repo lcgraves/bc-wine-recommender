@@ -53,6 +53,9 @@ if (is_post_request()) {
     // Get and validate price
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
 
+    // Get notes selected by user
+    $selected_notes = $_POST['notes'] ?? [];
+
 
 ?>
 

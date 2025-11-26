@@ -68,7 +68,8 @@ if (is_post_request()) {
     $wine['description'] = trim($_POST['description'] ?? '');
 
     // Get and validate price
-    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $submitted_price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $wine['price'] = $submitted_price !== false ? $submitted_price : null; // set to null if invalid
 
     // Get notes selected by user
     $selected_notes = $_POST['notes'] ?? [];

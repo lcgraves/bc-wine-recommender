@@ -183,6 +183,12 @@ if (empty($wine) || !is_post_request() || !empty($errors)) {
         $stmt_fetch_wine = executePS($pdo, $sql_fetch_wine, [':id' => $wine_id]);
         $fetched_wine = $stmt_fetch_wine->fetch(PDO::FETCH_ASSOC);
 
+    // If no wine found, redirect back to manage page
+    if (!$fetched_wine) {
+            redirect('manage-wines.php');
+        }
+        $wine = $fetched_wine; // Use DB data for rendering
+    }
 ?>
 
 <section>

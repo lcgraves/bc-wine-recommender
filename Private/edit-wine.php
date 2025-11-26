@@ -102,6 +102,13 @@ if (is_post_request()) {
         }
     }
 
+    // 3. UPDATE DATABASE IF NO ERRORS
+    if (empty($errors)) {
+        try {
+            $pdo->beginTransaction();
+
+}
+    }
 }
 ?>
 

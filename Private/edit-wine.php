@@ -278,7 +278,10 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             <p class="help-text">Leave blank to keep the current image. Max 5MB.</p>
         </div>
 
-        
+        <div class="form-group">
+            <label for="description" class="form-label">Description (Brief marketing text)</label>
+            <textarea id="description" name="description" class="form-textarea"><?= html_escape($wine['description'] ?? '') ?></textarea>
+        </div>
 
 </section>
 <?php require 'includes/footer.php' ?>

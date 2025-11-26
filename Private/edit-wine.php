@@ -131,8 +131,8 @@ if (is_post_request()) {
         // 3. Attempt to move the file
             if (move_uploaded_file($file_tmp_name, $target_file)) {
                 
-                // Success! Create the relative URL path required by the DB (Uses UPLOADS_WEB_PATH constant)
-                $new_image_url_db = UPLOAD_PATH . $new_file_name;
+                // Success! Create the relative URL path required by the DB
+                $new_image_url_db = 'images/' . $new_file_name;
                 
                 // Update the $wine array with the NEW URL
                 $wine['image_url'] = $new_image_url_db;
@@ -197,6 +197,9 @@ if (is_post_request()) {
             }
 
             $pdo->commit();
+
+            redirect("edit-wine.php?id=$wine_id&success=1");
+
         } catch (PDOException $e) {
             $pdo->rollBack();
             error_log("Wine Update Failed: " . $e->getMessage());

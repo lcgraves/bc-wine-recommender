@@ -49,7 +49,7 @@ try {
 
     // Redirect back to the wine management page with a success message
     $_SESSION['success_message'] = "Wine ID **$wine_id** was successfully deleted.";
-    redirect('manage-wines.php');
+    redirect('manage_wines.php');
 
     } catch (PDOException $e) {
     $pdo->rollBack();

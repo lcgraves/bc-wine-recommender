@@ -89,3 +89,11 @@ die();
 function urlIs($value) {
     return $_SERVER['REQUEST_URI'] == $value;
 }
+
+//Define category of flavour notes to notes map
+$category_to_notes_map = [
+    'berry_fruit' => ['wild cherry', 'black fruit', 'raspberry', 'cranberry', 'strawberry', 'plum'],
+    'earthy_spice' => ['mushroom', 'earthy', 'cedar', 'smoky', 'black olive'],
+    'citrus_mineral' => ['lime', 'petrol', 'slate/mineral', 'grapefruit', 'citrus zest', 'saline/maritime'],
+    'vegetal_herbal' => ['bell pepper', 'floral', 'elderflower'],
+];

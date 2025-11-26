@@ -85,11 +85,24 @@ if (is_post_request()) {
 } elseif ($wine['price'] === false || $wine['price'] < 0) {
     $errors[] = 'Price must be a valid positive number.';
 }
-
+// 5. Image Upload Validation (Only if a new file was provided)
+    if (!empty($_FILES['image_file']['name'])) {
+        $file = $_FILES['image_file'];
+        
+        // Check for common PHP upload errors
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            $errors[] = 'Image upload failed. Error code: ' . $file['error'];
+        }
+        
+        // Check file type and size against defined constants
+        elseif (!in_array($file['type'], $allowed_image_types)) {
+            $errors[] = 'Invalid image type. Allowed: JPG, PNG, GIF, WebP.';
+        } elseif ($file['size'] > $max_size) {
+            $errors[] = 'Image is too large. Maximum size: 5MB.';
+        }
+    }
 
 }
-
-
 ?>
 
 <section>

@@ -71,7 +71,15 @@ if (is_post_request()) {
     if (!validate_required($wine['region'])) { 
     $errors[] = 'Region selection is required.';
     }
-
+    if (!validate_required($wine['colour'])) { 
+        $errors[] = 'Colour selection is required.';
+    }
+    if (!validate_required($wine['body'])) { 
+        $errors[] = 'Body selection is required.';
+    }
+    if (!validate_required($wine['sweetness'])) { 
+        $errors[] = 'Sweetness selection is required.';
+    }
     if (!validate_required((string)$wine['price'])) { // Convert price back to string for the required check
     $errors[] = 'Price is required.';
 } elseif ($wine['price'] === false || $wine['price'] < 0) {

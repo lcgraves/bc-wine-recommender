@@ -18,3 +18,14 @@ $wine_id = filter_input(INPUT_POST, 'wine_id', FILTER_VALIDATE_INT);
 if (!$wine_id) {
     redirect('manage_wines.php');
 }
+
+try {
+    $pdo->beginTransaction();
+    
+    // Retrieve image URL to delete the file from the server
+    $sql_fetch_image = "SELECT image_url FROM wine WHERE wine_id = ?";
+    $stmt = executePS($pdo, $sql_fetch_image, [$wine_id]);
+    $image_url_to_delete = $stmt->fetchColumn();
+
+
+}

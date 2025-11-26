@@ -120,6 +120,14 @@ if (is_post_request()) {
             $errors[] = "Error: File size exceeds the 5MB limit.";
         }
 
+        // B. Attempt to move file only if validation passed
+        if (empty($errors)) {
+            // 1. Generate unique file name
+            $new_file_name = uniqid('wine_', true) . '.' . $file_ext;
+
+            // 2. Define the final target path (Uses UPLOAD_PATH constant)
+            $target_file = UPLOAD_PATH . $new_file_name;
+
     // 3. UPDATE DATABASE IF NO ERRORS
     if (empty($errors)) {
         try {

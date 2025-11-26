@@ -50,7 +50,8 @@ if (is_post_request()) {
     $sweetness = $_POST['sweetness'] ?? '';
     $description = $_POST['description'] ?? '';
 
-    
+    // Get and validate price
+    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
 
 
 ?>

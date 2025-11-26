@@ -30,6 +30,12 @@ if (is_post_request()) {
         $errors[] = "Username must be between 4 and 20 characters.";
     }
 
+if (empty($password_plain)) {
+        $errors[] = "Password is required.";
+    } elseif (strlen($password_plain) < 8) {
+        $errors[] = "Password must be at least 8 characters long.";
+    }
+
 ?>
 
 <main class="container login-wrapper">

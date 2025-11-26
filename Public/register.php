@@ -15,6 +15,14 @@ $errors = [];
 $success_message = '';
 $username = ''; // Used to persist the username on validation error
 
+// --- 2. REGISTRATION PROCESSING LOGIC ---
+if (is_post_request()) {
+    
+    // 1. Get and clean up inputs
+    $username = trim($_POST['username'] ?? '');
+    $password_plain = $_POST['password'] ?? '';
+    $password_confirm = $_POST['password_confirm'] ?? '';
+
 ?>
 
 <main class="container login-wrapper">

@@ -347,5 +347,24 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             </div>
         </div>
 
+        <hr class="form-separator">
+
+        <h2 class="form-section-header">Tasting Notes</h2>
+        <p class="form-subtitle" style="margin-bottom: 1rem;">Select all flavor notes that apply to this wine.
+            (The currently selected notes are checked.)</p>
+
+        <div class="notes-grid">
+            
+            <?php foreach ($all_notes_list as $note_value): ?>
+                <div class="checkbox-item">
+                    <label>
+                        <input type="checkbox" name="notes[]" value="<?= html_escape($note_value) ?>"
+                               <?= in_array($note_value, $selected_notes ?? []) ? 'checked' : '' ?>>
+                        <?= html_escape(str_replace('_', ' ', $note_value)) ?>
+                    </label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
 </section>
 <?php require 'includes/footer.php' ?>

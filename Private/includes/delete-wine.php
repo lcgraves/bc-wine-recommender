@@ -36,5 +36,12 @@ try {
     executePS($pdo, $sql_wine, [$wine_id]);
 
     $pdo->commit();
-
+    
+    // 4. Delete the physical image file
+    if ($image_url_to_delete && defined('UPLOAD_PATH')) {
+        $file_path = UPLOAD_PATH . basename($image_url_to_delete);
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        }
+    }
 }

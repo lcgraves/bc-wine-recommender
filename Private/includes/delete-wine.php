@@ -35,4 +35,6 @@ try {
     $sql_wine = "DELETE FROM wine WHERE wine_id = ?";
     executePS($pdo, $sql_wine, [$wine_id]);
 
+    $pdo->commit();
+
 }

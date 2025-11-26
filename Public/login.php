@@ -85,6 +85,10 @@ if (is_post_request()) {
                 </button>
             </form>
         </div>
+
+        <p style="text-align: center; margin-top: 1.5rem;">
+            No account? <a href="register.php">Register a new Admin</a>.
+        </p>
     </main>
 
     <!-- Footer  -->

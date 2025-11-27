@@ -69,7 +69,7 @@ try {
         <!-- Main Content Area -->
         <section class="main-content">
             <h1 class="recommender-title mb-05">Welcome Back!</h1>
-            <p style="color: darkgreen; font-size: 1.1rem" class="dashboard-welcome-text">You are currently logged in as **<?= html_escape($logged_in_username)?>**.</p>
+            <p style="color: darkgreen; font-size: 1.2rem; font-style: italic; font-family:serif;" class="dashboard-welcome-text">You are currently logged in as **<?= html_escape($logged_in_username)?>**.</p>
             
             <h2 class="dashboard-subheader">System Overview</h2>
 

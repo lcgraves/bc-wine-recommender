@@ -72,6 +72,7 @@ if ($password_plain !== $password_confirm) {
         }
     }
 }
+}
 ?>
 
 <main class="container login-wrapper">

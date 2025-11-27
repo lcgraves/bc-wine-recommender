@@ -176,3 +176,40 @@ This section covers the registration and access features for administrators.
 
 #### Logging Out
 * Click the **"Log Out"** link (usually located in the navigation bar) to clear your session and return to the login screen.
+
+## Key Concepts Demonstrated
+
+### 1. Prepared Statements (PDO)
+
+This technique prevents SQL Injection by sending the query structure and the data to the database separately.
+
+```php
+// Example from edit-wine.php (using positional placeholders)
+$sql_wine_update = "
+    UPDATE wine SET 
+        name = ?, winery = ?, region = ?, colour = ?, body = ?, 
+        sweetness = ?, price = ?, description = ?, image_url = ?
+    WHERE wine_id = ?
+";
+// ... execution follows using executePS($pdo, $sql_wine_update, $params_wine_update);
+
+### 2. Getting Last Insert ID
+
+* Used in `add-wine.php` to retrieve the automatically generated `wine_id` after inserting the new wine record, which is necessary for immediately linking the tasting notes in the next step.
+
+### 3. Counting Affected Rows
+
+* Used in the authentication and login process to verify that exactly one row (the admin user) matches the provided credentials.
+
+### 4. Handling Database Transactions and Errors
+
+* **Database Transactions:** Implemented in `edit-wine.php` and `delete-wine.php` to guarantee that multi-step operations (e.g., deleting notes AND deleting wine) either fully succeed or fully fail (`COMMIT` or `ROLLBACK`), ensuring data integrity.
+* **Duplicate Handling:** The specific `try...catch` logic is used in `register.php` (and should be used in `add-wine.php`) to catch database errors (like unique constraint violations) and display a user-friendly error message instead of crashing.
+
+### 5. Form Validation Flow
+
+* The code follows the sequential flow of checking conditions: check for `$_GET` ID, check for `$_POST` submission, validate data, process database operations if no errors, and finally, display errors or redirect. This ensures user input is retained on failure.
+
+### 6. File Upload Handling
+
+* Robust logic in `edit-wine.php` ensures files are checked for type and size, given a unique filename to prevent collisions, and the old file is safely deleted when replaced.

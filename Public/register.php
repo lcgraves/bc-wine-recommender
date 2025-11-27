@@ -88,6 +88,10 @@ if ($password_plain !== $password_confirm) {
                 </div>
             <?php endif; ?>
 
+            <?php if ($success_message): ?>
+                <p class="success-message" style="color: darkgreen; font-weight: bold; margin-bottom: 1rem;"><?= html_escape($success_message) ?></p>
+            <?php endif; ?>
+
             <form action="register.php" method="POST">
 
 <div class="form-group">

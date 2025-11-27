@@ -2,7 +2,7 @@
         
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <h2 class="sidebar-title">Dashboard</h2>
+            <h2 class="sidebar-title">Admin Dashboard</h2>
             <nav class="sidebar-menu">
                 <!-- Dashboard Home -->
                 <a href="dashboard.php" class="<?= urlIs('/bc-wine-recommender/Private/dashboard.php') ? 'active' : ''; ?>">Overview</a> 

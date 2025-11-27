@@ -50,6 +50,12 @@ if ($password_plain !== $password_confirm) {
             $errors[] = "Username is already taken. Please choose another.";
         }
     }
+
+// 4. Save new user if no errors
+    if (empty($errors)) {
+        try {
+            // A. Securely HASH the password
+            $hashed_password = password_hash($password_plain, PASSWORD_DEFAULT);
 ?>
 
 <main class="container login-wrapper">

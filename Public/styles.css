@@ -46,7 +46,10 @@ body::-webkit-scrollbar-track { background: #f1f1f1; }
 body::-webkit-scrollbar-thumb { background: var(--wine-accent); border-radius: 4px; }
 body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 
-.container {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -111,19 +114,19 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
     border-bottom: 2px solid var(--wine-light);
 }
 
-.admin-button {
+.navbar-nav .admin-button {
     /* Style for the 'Admin Login' link button in the main header */
     margin-left: 1.5rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     background-color: var(--wine-accent);
     color: var(--wine-light);
-    padding: 0.25rem 0.75rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     transition: all 0.3s;
     box-shadow: var(--shadow-md);
     text-decoration: none;
 }
-.admin-button:hover {
+.navbar-nav .admin-button:hover {
     background-color: var(--wine-light);
     color: var(--wine-dark);
     box-shadow: var(--shadow-lg);

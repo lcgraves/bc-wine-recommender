@@ -56,6 +56,15 @@ if ($password_plain !== $password_confirm) {
         try {
             // A. Securely HASH the password
             $hashed_password = password_hash($password_plain, PASSWORD_DEFAULT);
+
+// 5. INSERT new user into the admin table
+            $sql_insert = "INSERT INTO admin (username, password) VALUES (?, ?)";
+            executePS($pdo, $sql_insert, [$username, $hashed_password]);
+
+            $success_message = "✅ Registration successful! You can now log in.";
+            
+            // Clear the username variable so the form is empty on success
+            $username = '';
 ?>
 
 <main class="container login-wrapper">

@@ -40,6 +40,16 @@ if ($password_plain !== $password_confirm) {
         $errors[] = "Password and confirmation do not match.";
     }
 
+
+// 3. Check for existing username (Database check)
+    if (empty($errors)) {
+        $sql_check = "SELECT COUNT(*) FROM admin WHERE username = :username";
+        $count = executePS($pdo, $sql_check, [':username' => $username])->fetchColumn();
+        
+        if ($count > 0) {
+            $errors[] = "Username is already taken. Please choose another.";
+        }
+    }
 ?>
 
 <main class="container login-wrapper">

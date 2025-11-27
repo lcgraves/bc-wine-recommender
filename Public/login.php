@@ -59,7 +59,7 @@ if (is_post_request()) {
 
 ?>
 
-    <main class="container">
+    <main class="main-container">
         <div style="margin-top: 4rem;" class="login-card">
             <h1 class="recommender-title" style="font-size: 2rem; margin-bottom: 2rem;">Admin Login</h1>
 

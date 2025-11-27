@@ -213,3 +213,29 @@ $sql_wine_update = "
 ### 6. File Upload Handling
 
 * Robust logic in `edit-wine.php` ensures files are checked for type and size, given a unique filename to prevent collisions, and the old file is safely deleted when replaced.
+
+## Wine Database Schema
+
+### `wine` table
+
+* `id` - **Primary key **
+* `name` - Name of the wine
+* `winery` - Winery name
+* `colour` - Colour of wine
+* `body` - Body of wine
+* `sweetness` - Sweetness of wine
+* `description` - Brief description of wine
+* `image_url` - Image url
+* `updated_at` - Timestamp of last update
+
+### `tasting_note` table
+
+* `note_id` - **Primary key **
+* `wine_id` - **Foreign key ** to `wine` table. Links the note to a specific wine
+* `flavour_note` - Flavour notes of wine
+
+### `admin` table
+
+* `id` - **Primary key **
+* `username` - Unique login username
+* `password` - Securely stored password

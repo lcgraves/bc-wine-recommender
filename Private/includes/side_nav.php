@@ -10,7 +10,7 @@
                 <a href="manage_wines.php" class="<?= urlIs('/bc-wine-recommender/Private/manage-wines.php') ? 'active' : ''; ?>">Manage Wines</a>
                 
                 <!-- Add Wine directly via sidebar -->
-                <a href="add_wine.php" class="<?= urlIs('/bc-wine-recommender/Private/add-wines.php') ? 'active' : ''; ?>">Add New Wine</a>
+                <a href="add_wine.php" class="<?= urlIs('/bc-wine-recommender/Private/add_wine.php') ? 'active' : ''; ?>">Add New Wine</a>
                 
                 <!-- User Management (Only shown if user_role is 'admin' via PHP) -->
                 <?php 

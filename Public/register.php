@@ -65,6 +65,13 @@ if ($password_plain !== $password_confirm) {
             
             // Clear the username variable so the form is empty on success
             $username = '';
+            
+        } catch (PDOException $e) {
+            error_log("Registration DB error: " . $e->getMessage());
+            $errors[] = "A server error occurred during registration.";
+        }
+    }
+}
 ?>
 
 <main class="container login-wrapper">

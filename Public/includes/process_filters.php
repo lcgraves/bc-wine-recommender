@@ -42,9 +42,10 @@ $body = $_POST['body'] ?? null;
 
 
 // Build the base SQL query using an INNER JOIN
+// Select distinct to avoid duplicates when multiple notes match
 
 $sql = "
-    SELECT DISTINCT 
+    SELECT DISTINCT  
         w.wine_id, w.name, w.winery, w.region, w.colour, w.body, w.sweetness, 
         w.price, w.description, w.image_url 
     FROM wine AS w 

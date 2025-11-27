@@ -77,6 +77,12 @@ try {
         <!-- Main Content Area -->
         <section class="main-content">
             <h1 class="recommender-title mb-05">Welcome Back!</h1>
+
+            <?php if ($success_message): ?>
+        <div class="alert alert-success" style="padding: 15px; margin-bottom: 20px; border: 1px solid #d4edda; color: #155724; background-color: #d4edda; border-radius: 4px;">
+            <?= html_escape($success_message) ?>
+        </div>
+    <?php endif; ?>
             <p style="color: darkgreen; font-size: 1.2rem; font-style: italic; font-family:serif;" class="dashboard-welcome-text">You are currently logged in as **<?= html_escape($logged_in_username)?>**.</p>
             
             <h2 class="dashboard-subheader">System Overview</h2>

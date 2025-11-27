@@ -7,7 +7,7 @@
                 <!-- Dashboard Home -->
                 <a href="dashboard.php" class="<?= urlIs('/bc-wine-recommender/Private/dashboard.php') ? 'active' : ''; ?>">Overview</a> 
                 <!-- Wine Management -->
-                <a href="manage_wines.php" class="<?= urlIs('/bc-wine-recommender/Private/manage-wines.php') ? 'active' : ''; ?>">Manage Wines</a>
+                <a href="manage_wines.php" class="<?= urlIs('/bc-wine-recommender/Private/manage_wines.php') ? 'active' : ''; ?>">Manage Wines</a>
                 
                 <!-- Add Wine directly via sidebar -->
                 <a href="add_wine.php" class="<?= urlIs('/bc-wine-recommender/Private/add_wine.php') ? 'active' : ''; ?>">Add New Wine</a>

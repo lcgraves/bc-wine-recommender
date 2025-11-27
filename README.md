@@ -125,3 +125,54 @@ chmod 755 images/
 
 Navigate to: `http://localhost/BC-WINE-RECOMMENDER/Public/`
 
+## Usage Guide
+
+### Managing Wine Catalogue
+
+This section covers the CRUD operations for the wine records, including image and tasting note management.
+
+#### List Wines
+* Navigate to **Admin > Manage Wines**.
+* View all wines listed with the Name, Colour, Price, and edit and delete actions.
+* Click **EDIT** to modify a wine's profile, image, and tasting notes.
+* Click **DELETE** to permanently remove a wine record.
+
+#### Create New Wine
+1.  Click the **"ADD NEW WINE"** button.
+2.  Enter mandatory **Product Information** (Name, Winery, Region, Description).
+3.  Upload an image file for the wine label (optional, but recommended).
+4.  Enter the **Recommendation Filters** (Colour, Body, Sweetness, Price).
+5.  Select all applicable **Tasting Notes** (flavor profiles) from the grid.
+6.  Click **"SAVE NEW WINE"**.
+
+#### Edit Wine
+1.  Click the **EDIT** button on any wine from the list.
+2.  Modify any text fields, dropdown selections, or price.
+3.  To change the image, click **"Choose File"** and upload a new image; the system will automatically **delete the old image file** upon successful update.
+4.  Modify the **Tasting Notes** by checking/unchecking the relevant checkboxes.
+5.  Click **"Save Wine Profile Changes"**.
+
+#### Delete Wine
+1.  Click the **DELETE** button next to the desired wine.
+2.  Confirm the deletion.
+3.  The main wine record, along with **all associated tasting notes** and the physical image file will be automatically deleted due to the database integrity setup.
+
+---
+
+### Managing User Accounts
+
+This section covers the registration and access features for administrators.
+
+#### Register a New Admin
+1.  Navigate to the **`/Public/register.php`** URL.
+2.  Enter a unique **Username**.
+3.  Enter and confirm a strong **Password** (minimum 8 characters).
+4.  Click **"Register"**.
+
+#### Accessing the Admin Panel
+1.  Navigate to **`/Public/login.php`**.
+2.  Enter your registered Username and Password.
+3.  Click **"Log In"** to be redirected to the **Dashboard**.
+
+#### Logging Out
+* Click the **"Log Out"** link (usually located in the navigation bar) to clear your session and return to the login screen.

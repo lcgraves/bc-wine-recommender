@@ -77,3 +77,51 @@ BC-WINE-RECOMMENDER/
 │   └── styles.css                     # CSS Styles
 ├── README.md                          # This file
 └── wine_db.sql                        # Wine database 
+
+## Installation
+
+### Prerequisites
+* **PHP 8.1 or higher** 
+* **MySQL 5.7 or higher** (or MariaDB).
+* **Apache/Nginx web server**.
+* **PDO MySQL extension enabled**
+
+### Step 1: Setup Database
+
+1.  Create a new MySQL database:
+    ```sql
+    CREATE DATABASE bc_wine_recommender CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    ```
+
+2.  Import the database schema:
+    ```bash
+    mysql -u root -p bc_wine_recommender < wine_db.sql
+    ```
+    Or use phpMyAdmin to import the **`wine_db.sql`** file.
+
+### Step 2: Configure the Application
+
+Edit the database connection file, **`Public/includes/Database.php`**, and update the credentials and paths:
+
+```php
+// Database Connection Credentials
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'bc_wine_recommender');
+define('DB_USER', 'your_username');
+define('DB_PASS', 'your_password');
+
+// File Upload Path Constant (Adjust if your base path changes)
+define('UPLOAD_PATH', __DIR__ . '/../images/');
+
+### Step 3: Set Permissions
+
+Make sure the `images/` directory is writable:
+
+```bash
+chmod 755 images/
+```
+
+### Step 4: Access the Application
+
+Navigate to: `http://localhost/BC-WINE-RECOMMENDER/Public/`
+

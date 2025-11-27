@@ -182,7 +182,7 @@ if (is_post_request()) {
 
             <div class="form-group">
                 <label for="description" class="form-label">Description (Brief marketing text)</label>
-                <textarea id="description" name="description" class="form-textarea"></textarea>
+                <textarea id="description" name="description" class="form-textarea" required></textarea>
             </div>
 
             <hr class="form-separator">

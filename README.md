@@ -37,3 +37,43 @@
     * Clear **success/error messaging** (via `$_SESSION` and form display).
     * Image previews displayed during the editing process.
 
+## Technologies Used
+
+- **PHP 8.1+** - Server-side scripting
+- **MySQL** - Database management
+- **PDO** - Database abstraction layer
+- **HTML5** - Page structure
+- **CSS3** - Styling and layout
+- **Prepared Statements** - SQL injection prevention
+
+## Project Structure
+
+BC-WINE-RECOMMENDER/
+├── Private/
+│   ├── includes/                    
+│       ├── header_private.php         # Admin dashboard header
+│       └──side_nav.php                # Side navigation for Admin dashboard
+│   ├── add_wine.php                   # Add wine
+│   ├── dashboard.php                  # Admin dashboard
+│   ├── delete-wine.php                # Delete wine
+│   ├── edit-wine.php                  # Edit wine
+│   ├── logout.php                     # Redirect to login
+│   └── manage_wines.php               # View all wines
+├── Public/
+│   ├── images/                        # User uploaded wine images
+│   ├── includes/                      
+│       ├── config.php                 # Configuration settings
+│       ├── create_first_admin.php     # Used to create first admin 
+│       ├── Database.php               # Database connection & helpers
+│       ├── footer.php                 # Header template
+│       ├── nav.php                    # Navigation template
+│       └── process_filters.php        # Process filters & redirect to recommended
+│   ├── about.php                      # About page
+│   ├── index.php                      # Home page
+│   ├── login.php                      # Login page
+│   ├── recommended.php                # Recommended wines page
+│   ├── database.sql                   # Database schema & sample data
+│   ├── register.php                   # New user registration
+│   └── styles.css                     # CSS Styles
+├── README.md                          # This file
+└── wine_db.sql                        # Wine database 

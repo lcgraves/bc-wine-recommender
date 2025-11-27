@@ -65,7 +65,7 @@ if ($password_plain !== $password_confirm) {
             
             // Clear the username variable so the form is empty on success
             $username = '';
-            
+
         } catch (PDOException $e) {
             error_log("Registration DB error: " . $e->getMessage());
             $errors[] = "A server error occurred during registration.";
@@ -77,6 +77,16 @@ if ($password_plain !== $password_confirm) {
 <main class="container login-wrapper">
         <div class="login-card">
             <h1 class="recommender-title" style="font-size: 2rem; margin-bottom: 2rem;">Register New Admin</h1>
+
+            <?php if (!empty($errors)): ?>
+                <div class="alert alert-danger" style="color: darkred; font-weight: bold; margin-bottom: 1rem;">
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                            <li><?= html_escape($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
 
             <form action="register.php" method="POST">
 

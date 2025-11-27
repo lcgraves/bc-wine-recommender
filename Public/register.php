@@ -96,7 +96,7 @@ if ($password_plain !== $password_confirm) {
 
 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-input" 
+                    <input type="text" id="username" name="username" class="form-input" value="<?= html_escape($username) ?>"
                          required>
                 </div>
 

@@ -18,6 +18,14 @@ require 'includes/side_nav.php';
 // Retrieve stored username for display
 $logged_in_username = $_SESSION['admin_username'] ?? 'Admin';
 
+// --- Success Message Handling ---
+$success_message = $_SESSION['success_message'] ?? null;
+
+// CRITICAL: Unset the session variable after retrieving it!
+if (isset($_SESSION['success_message'])) {
+    unset($_SESSION['success_message']);
+}
+
 // --- 1. RETRIEVE DATA FROM DATABASE ---
 
 //connect to database

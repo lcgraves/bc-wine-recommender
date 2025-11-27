@@ -260,3 +260,29 @@ $sql_wine_update = "
 ### 4. Storing passwords safely
 
 * Password Hashing
+
+## Sample Data
+
+The database includes sample data:
+* 14 sample wine records
+* The related flavour notes for the 14 wines
+* 3 admin users
+
+## Troubleshooting Guide
+
+### 1. Database Connection
+
+* Check database credentials (`config.php`)
+* Ensure MySQL service is running
+* Verify the database exists
+
+### 2. Image Upload Issues
+
+* Check `uploads/` directory permissions (should be writable, e.g., `755`).
+* Verify PHP limits in `php.ini`: `upload_max_filesize` and `post_max_size`
+
+### 3. Blank Page / PHP Error
+
+* **Enable error reporting** in development mode (`config.php`)
+* Check **PHP error logs** for the fatal error message
+* Ensure **PHP PDO MySQL extension** is installed

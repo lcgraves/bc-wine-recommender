@@ -239,3 +239,24 @@ $sql_wine_update = "
 * `id` - **Primary key **
 * `username` - Unique login username
 * `password` - Securely stored password
+
+## Security Features
+
+### 1. SQL Injection Prevention
+
+* All database queries use prepared statements
+* No direct SQL string concatenation
+
+### 2. XSS (Cross-Site Scripting) Prevention
+
+* All output rendered to the user is passed through escaping functions.
+* Using the native `htmlspecialchars()` function and/or a custom `html_escape()` helper function
+
+### 3. File Upload Security
+
+* Validation of file extension and size limits
+* Generation of a unique filename for storage
+
+### 4. Storing passwords safely
+
+* Password Hashing

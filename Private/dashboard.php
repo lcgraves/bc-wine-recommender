@@ -15,6 +15,9 @@ require_once '../Public/includes/Database.php';
 require 'includes/header_private.php';
 require 'includes/side_nav.php';
 
+// Retrieve stored username for display
+$logged_in_username = $_SESSION['admin_username'] ?? 'Admin';
+
 // --- 1. RETRIEVE DATA FROM DATABASE ---
 
 //connect to database
@@ -66,7 +69,7 @@ try {
         <!-- Main Content Area -->
         <section class="main-content">
             <h1 class="recommender-title mb-05">Welcome Back!</h1>
-            <p class="dashboard-welcome-text">You are currently logged in as a **[Placeholder Role - e.g., Admin/Editor]**.</p>
+            <p style="color: darkgreen; font-size: 1.1rem" class="dashboard-welcome-text">You are currently logged in as **<?= html_escape($logged_in_username)?>**.</p>
             
             <h2 class="dashboard-subheader">System Overview</h2>
 

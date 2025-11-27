@@ -487,7 +487,7 @@ body::-webkit-scrollbar-thumb:hover { background: #7c5e47; }
 }
 
 .stat-value {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: var(--font-serif);
     font-weight: 700;
     color: var(--wine-dark);

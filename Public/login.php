@@ -4,6 +4,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 $page_title = "Login";
 require_once 'includes/Database.php';
 require 'includes/header.php';

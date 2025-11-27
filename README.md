@@ -286,3 +286,19 @@ The database includes sample data:
 * **Enable error reporting** in development mode (`config.php`)
 * Check **PHP error logs** for the fatal error message
 * Ensure **PHP PDO MySQL extension** is installed
+
+## Future Enhancements
+
+### Security
+
+* **User Roles:** Implement **Admin/User roles** to prevent unauthorized users from deleting wines
+* **Backend Access:** Block non-admin users from accessing the **backend/management pages**
+
+### Functionality
+
+* **Surprise Button:** Add the **random selection logic** (e.g., `ORDER BY RAND() LIMIT 1`) to the "Surprise Me" button.
+
+### ✨ Data & UX
+
+* **Advanced Filtering:** Add filtering options for **Grape Variety** and **Score**.
+* **Recommendation Logic:** Implement **smarter logic** to recommend wines based on shared characteristics.

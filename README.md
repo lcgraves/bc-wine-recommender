@@ -296,6 +296,7 @@ The database includes sample data:
 
 ### Functionality
 
+* **Filters:** Make the **price and region filters** on `recommender.php` functional 
 * **Surprise Button:** Add the **random selection logic** (e.g., `ORDER BY RAND() LIMIT 1`) to the "Surprise Me" button.
 
 ### ✨ Data & UX

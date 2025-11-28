@@ -47,7 +47,7 @@
 - **Prepared Statements** - SQL injection prevention
 
 ## Project Structure
-
+```
 BC-WINE-RECOMMENDER/
 ├── Private/
 │   ├── includes/                    
@@ -77,7 +77,7 @@ BC-WINE-RECOMMENDER/
 │   └── styles.css                     # CSS Styles
 ├── README.md                          # This file
 └── wine_db.sql                        # Wine database 
-
+```
 ## Installation
 
 ### Prerequisites

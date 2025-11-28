@@ -112,6 +112,7 @@ define('DB_PASS', 'your_password');
 
 // File Upload Path Constant (Adjust if your base path changes)
 define('UPLOAD_PATH', __DIR__ . '/../images/');
+```
 
 ### Step 3: Set Permissions
 

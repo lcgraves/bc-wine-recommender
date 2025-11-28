@@ -43,7 +43,15 @@ if (is_post_request()) {
     $image_url_db = '';
 
     // --- 2. Basic Validation ---
-    if (empty($name) || empty($winery) || empty($region) || empty($colour) || empty($body) || empty($sweetness) || !is_numeric($price)) {
+    if (
+    !validate_required($name) ||
+    !validate_required($winery) ||
+    !validate_required($region) ||
+    !validate_required($colour) ||
+    !validate_required($body) ||
+    !validate_required($sweetness) ||
+    !is_numeric($price)) 
+    {
         $message = "Error: Please fill out all required fields and ensure the price is valid.";
         $error = true;
     }

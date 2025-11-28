@@ -192,6 +192,7 @@ $sql_wine_update = "
     WHERE wine_id = ?
 ";
 // ... execution follows using executePS($pdo, $sql_wine_update, $params_wine_update);
+```
 
 ### 2. Getting Last Insert ID
 

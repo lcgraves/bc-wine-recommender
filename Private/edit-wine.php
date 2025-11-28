@@ -57,7 +57,7 @@ $all_notes_list = [
 // ====================================================================
 if (is_post_request()) {
 
-    // 1. Get inputs & assign to $wine array
+    // 1. Get inputs, clean & assign to $wine array
     $wine['wine_id'] = $wine_id;
     $wine['name'] = trim($_POST['name'] ?? '');
     $wine['winery'] = trim($_POST['winery'] ?? '');
